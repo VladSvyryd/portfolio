@@ -1,0 +1,22 @@
+.navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0 10px;
+}
+
+.selected_home {
+  color: #6b63ff;
+  text-shadow: 0 0 15px #6b63ff;
+  animation: neon 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon {
+  from {
+    text-shadow: 0 0 20px #6b63ff;
+  }
+  to {
+    text-shadow: 0 0 0px #6b63ff;
+  }
+}

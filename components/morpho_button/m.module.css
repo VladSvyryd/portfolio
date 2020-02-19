@@ -1,0 +1,28 @@
+.button {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  background: #272641;
+  border-radius: 15px;
+  box-shadow: -2px -2px 3px rgba(255, 255, 255, 0.05),
+    3px 3px 3px rgba(0, 0, 0, 0.2);
+  color: white;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-out;
+}
+.button.isDown {
+  box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.05),
+    -2px -2px 3px rgba(0, 0, 0, 0.2);
+}
+.button > * {
+  color: #555;
+  transition: color 0.3s ease-out;
+}
+
+.button > *:hover {
+  color: #6b63ff;
+  text-shadow: 0 0 15px #6b63ff;
+}
