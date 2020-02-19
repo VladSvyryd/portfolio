@@ -14,9 +14,9 @@
 
 @keyframes neon {
   from {
-    text-shadow: 0 0 20px #6b63ff;
+    text-shadow: 0 0 0px #6b63ff;
   }
   to {
-    text-shadow: 0 0 0px #6b63ff;
+    text-shadow: 0 0 25px #6b63ff;
   }
 }

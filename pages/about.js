@@ -1,33 +1,35 @@
 import { Nav } from "../components/nav/Nav";
-import fetch from "isomorphic-unfetch";
-import { useState } from "react";
-const about = ({ page }) => {
-  const [pageObject, set] = useState(page);
-  console.log(pageObject);
+import { motion } from "framer-motion";
+
+const about = () => {
   return (
-    <>
-      <Nav />
-      <div>This is About</div>
-      <div>This is {pageObject.path}</div>
-      <div>{pageObject.paragraph}</div>
+    <motion.div
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0, translateY: "-100%" }}
+      animate={{ opacity: 1, translateY: "0%" }}
+      className="twoCol"
+    >
       <div>
-        {" "}
-        {pageObject.picture.map(pic => (
-          <div key={pic.id}>
-            <img
-              src={`http://localhost:1337${pic.url}`}
-              style={{ width: "200px" }}
-            />
-            <p>{pageObject.description}</p>
-          </div>
-        ))}
+        <Nav />
       </div>
-    </>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          width: "300px"
+        }}
+      >
+        <div>This is About</div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+          sapiente minima itaque qui at illum aperiam praesentium iure enim
+          similique cupiditate odio, ab fugiat fuga dignissimos amet voluptatum
+          ea ad.
+        </p>
+      </div>
+    </motion.div>
   );
 };
-about.getInitialProps = async () => {
-  const res = await fetch("http://localhost:1337/pages?path=about");
-  const json = await res.json();
-  return { page: json[0] };
-};
+
 export default about;

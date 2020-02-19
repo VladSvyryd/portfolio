@@ -11,10 +11,14 @@ export const Nav = () => {
         </Link>
       </Morpho_button>
       <Morpho_button>
-        <a>About</a>
+        <Link href="/about" activeClass={styles.selected_home}>
+          <a>About</a>
+        </Link>
       </Morpho_button>
       <Morpho_button>
-        <a>Skills</a>
+        <Link href="/skills" activeClass={styles.selected_home}>
+          <a>Skills</a>
+        </Link>
       </Morpho_button>
     </div>
   );
