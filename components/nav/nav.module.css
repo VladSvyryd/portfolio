@@ -4,6 +4,7 @@
   justify-content: center;
   height: 100%;
   padding: 0 10px;
+  z-index: 2;
 }
 
 .selected_home {
@@ -19,4 +20,23 @@
   to {
     text-shadow: 0 0 25px #6b63ff;
   }
+}
+.homeIcon,
+.aboutIcon,
+.skillsIcon {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.homeIcon {
+  background-image: url("../../assets/icons8_home.svg");
+  background-size: 40px;
+}
+.aboutIcon {
+  background-image: url("../../assets/user.svg");
+  background-size: 38px;
+}
+.skillsIcon {
+  background-image: url("../../assets/skills.svg");
+  background-size: 37px;
 }

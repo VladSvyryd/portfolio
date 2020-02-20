@@ -38,6 +38,21 @@ body {
 .twoCol > div:nth-child(2) {
   width: 60%;
 }
+@media (max-width: 1200px) {
+  .twoCol > div:nth-child(1) {
+    width: 100%;
+    z-index: 2;
+  }
+  .twoCol > div:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.1;
+    z-index: 1;
+  }
+}
 
 a {
   text-decoration: none;

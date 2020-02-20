@@ -52,4 +52,50 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 1s ease;
+}
+
+@media (max-width: 1200px) {
+  .card1 {
+    width: 533.9px;
+    height: 667.2;
+  }
+  .card2 {
+    width: 533.75px;
+    height: 667.2;
+  }
+  .card3 {
+    width: 162.125px;
+    height: 667.2;
+  }
+  .card4 {
+    width: 46.7px;
+    height: 667.2;
+  }
+}
+
+.secret {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 25px;
+  top: 273px;
+  left: 391px;
+  transition: all 3s ease-in;
+}
+.secretInput {
+  width: 0px;
+  opacity: 0;
+}
+
+.heartScreen {
+  position: absolute;
+  top: 147px;
+  left: 297px;
+  width: 199px;
+  height: 111px;
+  overflow: hidden;
+}
+.heartItem {
+  position: absolute;
 }

@@ -13,6 +13,7 @@ function Morpho_button(props) {
       className={styles.button}
       onMouseDown={e => isDown(e)}
       onMouseUp={e => isUp(e)}
+      onMouseLeave={e => isUp(e)}
     >
       {props.children}
     </span>

@@ -2,6 +2,16 @@ import { Nav } from "../components/nav/Nav";
 import { motion } from "framer-motion";
 
 const about = () => {
+  const icon = {
+    hidden: {
+      pathLength: 0,
+      fill: "rgba(255, 255, 255, 0)"
+    },
+    visible: {
+      pathLength: 1,
+      fill: "rgba(255, 255, 255, 1)"
+    }
+  };
   return (
     <motion.div
       exit={{ opacity: 0 }}
@@ -27,6 +37,14 @@ const about = () => {
           similique cupiditate odio, ab fugiat fuga dignissimos amet voluptatum
           ea ad.
         </p>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+          <motion.path
+            d="M0 100V0l50 50 50-50v100L75 75l-25 25-25-25z"
+            variants={icon}
+            initial="hidden"
+            animate="visible"
+          />
+        </svg>
       </div>
     </motion.div>
   );
