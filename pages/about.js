@@ -19,9 +19,7 @@ const about = () => {
       animate={{ opacity: 1, translateY: "0%" }}
       className="twoCol"
     >
-      <div>
-        <Nav />
-      </div>
+      <div></div>
       <div
         style={{
           display: "flex",

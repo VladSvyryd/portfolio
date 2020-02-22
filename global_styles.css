@@ -24,11 +24,16 @@ body {
   cursor: default;
   overflow: hidden;
 }
-
+.flexFrame {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
 .twoCol {
   display: flex;
   flex-direction: row;
   height: 100%;
+  width: 100%;
 }
 
 .twoCol > div:nth-child(1) {
@@ -55,4 +60,8 @@ body {
 
 a {
   text-decoration: none;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }

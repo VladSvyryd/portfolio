@@ -9,28 +9,50 @@
 
 .selected_home {
   color: #6b63ff;
-  text-shadow: 0 0 15px #6b63ff;
-  animation: neon 1.5s ease-in-out infinite alternate;
 }
 
-@keyframes neon {
+@keyframes neonHome {
   from {
-    text-shadow: 0 0 0px #6b63ff;
+    filter: drop-shadow(0px 0px -6px #85d3e8);
   }
   to {
-    text-shadow: 0 0 25px #6b63ff;
+    filter: drop-shadow(0px 0px 6px #85d3e8);
+    fill: #85d3e8;
+  }
+}
+@keyframes neonAbout {
+  from {
+    filter: drop-shadow(0px 0px -6px #48bc57);
+  }
+  to {
+    filter: drop-shadow(0px 0px 6px #48bc57);
+    fill: #48bc57;
+  }
+}
+@keyframes neonSkills {
+  from {
+    filter: drop-shadow(0px 0px -6px rgb(207, 45, 45));
+  }
+  to {
+    filter: drop-shadow(0px 0px 6px rgb(207, 45, 45));
+    fill: rgb(207, 45, 45);
   }
 }
 
 .homeIcon svg {
   fill: #555;
+  animation: neonHome 3.5s ease-in-out infinite alternate;
 }
-.aboutIcon {
+.aboutIcon svg {
   fill: #555;
+  animation: neonAbout 3.5s ease-in-out infinite alternate;
+  animation-delay: 1s;
 }
 .skillsIcon svg,
 .skillsIcon g {
   fill: #555;
+  animation: neonSkills 3.5s ease-in-out infinite alternate;
+  animation-delay: 2s;
 }
 .homeIcon:hover svg {
   fill: #85d3e8;
@@ -41,4 +63,8 @@
 .skillsIcon:hover g {
   fill: rgb(207, 45, 45);
   filter: drop-shadow(0px 0px 15px rgb(207, 45, 45));
+}
+.aboutIcon:hover svg {
+  fill: #48bc57;
+  filter: drop-shadow(0px 0px 15px #48bc57);
 }

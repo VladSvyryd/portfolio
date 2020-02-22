@@ -8,11 +8,13 @@ function HomePage({ pages }) {
       <motion.div
         className="twoCol"
         exit={{ opacity: 0 }}
-        initial={{ opacity: 0, translateY: "+100%" }}
+        initial={{ opacity: 0, translateY: "-100%" }}
         animate={{ opacity: 1, translateY: "0%" }}
       >
         <div style={{ display: "flex", flexDirection: "row" }}>
-          <Nav />
+          <div>
+            <h1>Hi, I'm Vlad, developer.</h1>
+          </div>
         </div>
         <div>
           <Parallax />
