@@ -117,9 +117,11 @@ const Parallax = () => {
     <div
       className={styles.container}
       onMouseMove={({ clientX: x, clientY: y }) =>
+        window.innerWidth >= 1200 &&
         set({ xy: calc(x, y), config: initialAnimationConfig })
       }
       onMouseLeave={() =>
+        window.innerWidth >= 1200 &&
         set({ xy: [0, 0], config: { mass: 10, tension: 1050, friction: 40 } })
       }
     >
@@ -175,6 +177,8 @@ const Parallax = () => {
         onMouseDown={e => isDown(e)}
         onMouseUp={e => isUp(e)}
         onMouseLeave={e => isUp(e)}
+        onTouchStart={e => isDown(e)}
+        onTouchEnd={e => isUp(e)}
       />
     </div>
   );

@@ -11,7 +11,6 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: box-shadow 0.2s ease-out;
 }
 
 .button > * {
@@ -19,12 +18,15 @@
   transition: color 0.3s ease-out;
   display: flex;
   height: 100%;
+  width: 100%;
   justify-content: center;
   align-items: center;
   border-radius: 15px;
 }
-
-.button > *:hover {
-  color: #6b63ff;
-  text-shadow: 0 0 15px #6b63ff;
+.button svg,
+.button g {
+  transition: fill 0.2s ease-out;
+  transition: filter 0.2s ease-out;
+}
+.button svg:hover {
 }
