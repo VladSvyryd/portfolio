@@ -106,9 +106,6 @@ const Parallax = () => {
     };
   }, [startLongPress]);
   useEffect(() => {
-    console.log(screenRef.current.clientHeight);
-    console.log(screenRef.current.clientWidth / 2);
-
     let parentWidth = screenRef.current.clientWidth;
     let parentHeight = screenRef.current.clientHeight;
     setScreen({ w: parentWidth, h: parentHeight });

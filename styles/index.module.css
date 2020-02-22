@@ -1,0 +1,11 @@
+.contactButton {
+  width: auto;
+  height: auto;
+  align-self: flex-start;
+  margin-top: 20px;
+}
+@media (max-width: 1024px) {
+  .contactButton {
+    align-self: center;
+  }
+}

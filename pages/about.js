@@ -1,6 +1,18 @@
 import { Nav } from "../components/nav/Nav";
 import { motion } from "framer-motion";
-
+const anim_init_Desktop = {
+  opacity: 0,
+  translateX: "+100%"
+};
+const anim_finish_Desktop = {
+  opacity: 1,
+  scale: 1,
+  translateX: "0%",
+  transition: {
+    duration: 0.5,
+    type: "spring"
+  }
+};
 const about = () => {
   const icon = {
     hidden: {
@@ -14,12 +26,24 @@ const about = () => {
   };
   return (
     <motion.div
-      exit={{ opacity: 0 }}
-      initial={{ opacity: 0, translateY: "-100%" }}
-      animate={{ opacity: 1, translateY: "0%" }}
-      className="twoCol"
+      exit={{ opacity: 0, scale: 0 }}
+      className="twoCol "
+      initial={anim_init_Desktop}
+      animate={anim_finish_Desktop}
     >
-      <div></div>
+      <div className="homeColumn about">
+        <h1 aria-label="About me" className="headline">
+          About me
+        </h1>
+        <div className="textContainer">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero ullam
+            eum quo saepe vitae animi ex, voluptatem nostrum! Voluptatibus
+            debitis quo aspernatur quidem sequi voluptatum est laborum quia
+            delectus ipsa?
+          </p>
+        </div>
+      </div>
       <div
         style={{
           display: "flex",
@@ -27,23 +51,7 @@ const about = () => {
           justifyContent: "center",
           width: "300px"
         }}
-      >
-        <div>This is About</div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-          sapiente minima itaque qui at illum aperiam praesentium iure enim
-          similique cupiditate odio, ab fugiat fuga dignissimos amet voluptatum
-          ea ad.
-        </p>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-          <motion.path
-            d="M0 100V0l50 50 50-50v100L75 75l-25 25-25-25z"
-            variants={icon}
-            initial="hidden"
-            animate="visible"
-          />
-        </svg>
-      </div>
+      ></div>
     </motion.div>
   );
 };

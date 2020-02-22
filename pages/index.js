@@ -1,19 +1,69 @@
-import { Nav } from "../components/nav/Nav";
+import Link from "../components/link/link";
+
 import Parallax from "../components/parralax/parallax";
+import { useState, useEffect } from "react";
+import styles from "../styles/index.module.css";
+
 import { motion } from "framer-motion";
+const anim_init_Desktop = {
+  opacity: 0,
+  translateX: "+100%"
+};
+const anim_finish_Desktop = {
+  opacity: 1,
+  scale: 1,
+  translateX: "0%",
+  transition: {
+    duration: 0.5,
+    type: "spring"
+  }
+};
+const anim_init_Mobile = {
+  opacity: 0,
+  translateX: "+100%"
+};
+const anim_finish_Mobile = { opacity: 1, translateX: "0%" };
 
 function HomePage({ pages }) {
+  const [currentAnimation, setCurrentAnimation] = useState([
+    anim_init_Desktop,
+    anim_finish_Desktop
+  ]);
+
   return (
     <>
       <motion.div
+        exit={{ opacity: 0, scale: 0 }}
         className="twoCol"
-        exit={{ opacity: 0 }}
-        initial={{ opacity: 0, translateY: "-100%" }}
-        animate={{ opacity: 1, translateY: "0%" }}
+        initial={anim_init_Desktop}
+        animate={anim_finish_Desktop}
       >
         <div style={{ display: "flex", flexDirection: "row" }}>
-          <div>
-            <h1>Hi, I'm Vlad, developer.</h1>
+          <div className="homeColumn">
+            <h1 aria-label=" Hi, I’m Vlad,web developer." className="headline">
+              Hi,
+              <br /> I'm Vlad,
+              <br /> web developer.
+            </h1>
+            <h2 className="sub_headline">
+              Front End Developer | React.js Enthusiast | JS, HTML, CSS
+            </h2>
+            <div
+              className={`morphoShadow button ${styles.contactButton}`}
+              id="contactButton"
+            >
+              <Link href="/">
+                <a
+                  style={{
+                    color: "#6c63ff",
+                    fontWeight: "bold",
+                    width: "100%"
+                  }}
+                >
+                  Contact
+                </a>
+              </Link>
+            </div>
           </div>
         </div>
         <div>

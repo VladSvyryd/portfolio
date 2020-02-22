@@ -10,6 +10,7 @@ function Morpho_button(props) {
   };
   return (
     <span
+      style={props.style}
       className={styles.button}
       onMouseDown={e => isDown(e)}
       onMouseUp={e => isUp(e)}
