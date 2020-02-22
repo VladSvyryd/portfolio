@@ -7,7 +7,7 @@ const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
 const trans2 = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 + 117}px,0)`;
 const trans3 = (x, y) => `translate3d(${x / 6}px,${y / 6 + 75}px,0)`;
-const trans4 = (x, y) => `translate3d(${x / 6.5 + 420}px,${y / 6.5 + 260}px,0)`;
+const trans4 = (x, y) => `translate3d(${x / 6.5 + 0}px,${y / 6.5 + 260}px,0)`;
 const initialAnimationConfig = { mass: 10, tension: 1050, friction: 140 };
 const Parallax = () => {
   const [props, set] = useSpring(() => ({
@@ -18,18 +18,20 @@ const Parallax = () => {
   const [si, setsi] = useState("");
   const [inputState, setInputState] = useState(true);
   const [startLongPress, setStartLongPress] = useState(false);
+  const [screen, setScreen] = useState({ w: 100, h: 200 });
   const [isOpen, toggleOpen] = useCycle(false, true);
   const isDown = ({ currentTarget }) => {
-    currentTarget.style =
-      " background: red;  box-shadow: 0 0 15px 6px #ef2222;";
+    currentTarget.style = "filter: drop-shadow(0px 0px 16px rgb(255, 0, 0));";
+    setInputState(false);
+
     setStartLongPress(true);
   };
   const isUp = ({ currentTarget }) => {
-    currentTarget.style = " background: transperent; box-shadow: 0px 0px 0px";
+    currentTarget.style = "filter: 0;";
+
     setStartLongPress(false);
   };
   const callback = () => {
-    setInputState(false);
     inputRef.current.focus();
     console.log("triggered");
   };
@@ -41,6 +43,7 @@ const Parallax = () => {
     }
   };
   const inputRef = useRef(null);
+  const screenRef = useRef(null);
 
   const heart = () => {
     return (
@@ -63,8 +66,12 @@ const Parallax = () => {
     );
   };
   const item = {
-    hidden: { y: 125, x: 85, opacity: 0.5 },
-    visible: ([index, randomX]) => ({
+    hidden: randomX => ({
+      y: screen.h + 30,
+      x: screen.w,
+      opacity: 0.5
+    }),
+    visible: randomX => ({
       y: -25,
       x: randomX - 20,
       opacity: 1,
@@ -98,6 +105,14 @@ const Parallax = () => {
       clearTimeout(timerId);
     };
   }, [startLongPress]);
+  useEffect(() => {
+    console.log(screenRef.current.clientHeight);
+    console.log(screenRef.current.clientWidth / 2);
+
+    let parentWidth = screenRef.current.clientWidth;
+    let parentHeight = screenRef.current.clientHeight;
+    setScreen({ w: parentWidth, h: parentHeight });
+  }, []);
   return (
     <div
       className={styles.container}
@@ -116,12 +131,7 @@ const Parallax = () => {
         className={styles.card2}
         style={{ transform: props.xy.interpolate(trans2) }}
       >
-        <div
-          className={styles.secret}
-          onMouseDown={e => isDown(e)}
-          onMouseUp={e => isUp(e)}
-          onMouseLeave={e => isUp(e)}
-        >
+        <div className={styles.secret}>
           <form onSubmit={revealTheSectret}>
             <input
               className={styles.secretInput}
@@ -138,14 +148,15 @@ const Parallax = () => {
           variants={container}
           initial={false}
           animate={isOpen ? "visible" : "hidden"}
+          ref={screenRef}
         >
           {new Array(100).fill(" ").map((el, index) => {
-            let r = Math.floor(Math.random() * 200) + 1;
+            let r = Math.floor(Math.random() * screen.w) + 1;
             return (
               <motion.div
                 key={index}
                 className={styles.heartItem}
-                custom={[index, r]}
+                custom={r}
                 variants={item}
               >
                 {heart()}
@@ -161,6 +172,9 @@ const Parallax = () => {
       <animated.div
         className={styles.card4}
         style={{ transform: props.xy.interpolate(trans4) }}
+        onMouseDown={e => isDown(e)}
+        onMouseUp={e => isUp(e)}
+        onMouseLeave={e => isUp(e)}
       />
     </div>
   );
