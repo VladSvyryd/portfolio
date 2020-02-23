@@ -7,7 +7,7 @@ const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
 const trans2 = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 + 117}px,0)`;
 const trans3 = (x, y) => `translate3d(${x / 6}px,${y / 6 + 75}px,0)`;
-const trans4 = (x, y) => `translate3d(${x / 6.5 + 0}px,${y / 6.5 + 260}px,0)`;
+const trans4 = (x, y) => `translate3d(${x / 6.5 + 380}px,${y / 6.5 + 260}px,0)`;
 const initialAnimationConfig = { mass: 10, tension: 1050, friction: 140 };
 const Parallax = () => {
   const [props, set] = useSpring(() => ({

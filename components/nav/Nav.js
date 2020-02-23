@@ -6,7 +6,7 @@ export const Nav = () => {
   return (
     <div className={styles.navigation}>
       <Morpho_button>
-        <Link href="/" activeClass={styles.selected_home}>
+        <Link href="/" activeClass={"selected_home"}>
           <a className={styles.homeIcon}>
             <svg
               fill="#000000"
@@ -22,7 +22,7 @@ export const Nav = () => {
         </Link>
       </Morpho_button>
       <Morpho_button>
-        <Link href="/about" activeClass={styles.selected_home}>
+        <Link href="/about" activeClass={"selected_about"}>
           <a className={styles.aboutIcon}>
             <svg
               height="30px"
@@ -39,7 +39,7 @@ export const Nav = () => {
         </Link>
       </Morpho_button>
       <Morpho_button>
-        <Link href="/skills" activeClass={styles.selected_home}>
+        <Link href="/skills" activeClass={"selected_skills"}>
           <a className={styles.skillsIcon}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -21,9 +21,6 @@
     margin: 10px 24px;
   }
 }
-.selected_home {
-  color: #6b63ff;
-}
 
 @keyframes neonHome {
   from {
@@ -55,17 +52,17 @@
 
 .homeIcon svg {
   fill: #555;
-  animation: neonHome 3.5s ease-in-out infinite alternate;
+  /*animation: neonHome 3.5s ease-in-out infinite alternate;*/
 }
 .aboutIcon svg {
   fill: #555;
-  animation: neonAbout 3.5s ease-in-out infinite alternate;
+  /* animation: neonAbout 3.5s ease-in-out infinite alternate; */
   animation-delay: 1s;
 }
 .skillsIcon svg,
 .skillsIcon g {
   fill: #555;
-  animation: neonSkills 3.5s ease-in-out infinite alternate;
+  /* animation: neonSkills 3.5s ease-in-out infinite alternate; */
   animation-delay: 2s;
 }
 .homeIcon:hover svg {

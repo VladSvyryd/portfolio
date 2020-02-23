@@ -45,7 +45,11 @@ const skills = () => {
             </p>
             <p>
               Visit my{" "}
-              <a href="/" className="externalLink">
+              <a
+                href="https://www.linkedin.com/in/vlad-s-1b2112a6/"
+                target="_blank"
+                className="externalLink"
+              >
                 LinkedIn
               </a>{" "}
               profile for more details or{" "}

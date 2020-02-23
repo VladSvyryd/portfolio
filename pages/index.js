@@ -25,20 +25,6 @@ const anim_init_Mobile = {
 const anim_finish_Mobile = { opacity: 1, translateX: "0%" };
 
 function HomePage() {
-  const router = useRouter();
-  const [currentAnimation, setCurrentAnimation] = useState([
-    anim_init_Desktop,
-    anim_finish_Desktop
-  ]);
-  const linkRef = useRef(null);
-  const [xyContactLink, setxyContactLink] = useState({ x: 0, y: 0 });
-  useEffect(() => {
-    setxyContactLink({
-      x: linkRef.current.offsetLeft,
-      y: linkRef.current.offsetTop
-    });
-  }, []);
-  console.log(router.pathname);
   return (
     <>
       <motion.div
@@ -63,8 +49,7 @@ function HomePage() {
             >
               <Link
                 href={{
-                  pathname: "/contact",
-                  query: { x: xyContactLink.x, y: xyContactLink.y }
+                  pathname: "/contact"
                 }}
                 as={"/contact"}
               >
@@ -74,7 +59,6 @@ function HomePage() {
                     fontWeight: "bold",
                     width: "100%"
                   }}
-                  ref={linkRef}
                 >
                   Contact
                 </a>
