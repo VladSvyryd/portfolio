@@ -1,7 +1,7 @@
 import Link from "../components/link/link";
-
+import { useRouter } from "next/router";
 import Parallax from "../components/parralax/parallax";
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import styles from "../styles/index.module.css";
 
 import { motion } from "framer-motion";
@@ -24,12 +24,21 @@ const anim_init_Mobile = {
 };
 const anim_finish_Mobile = { opacity: 1, translateX: "0%" };
 
-function HomePage({ pages }) {
+function HomePage() {
+  const router = useRouter();
   const [currentAnimation, setCurrentAnimation] = useState([
     anim_init_Desktop,
     anim_finish_Desktop
   ]);
-
+  const linkRef = useRef(null);
+  const [xyContactLink, setxyContactLink] = useState({ x: 0, y: 0 });
+  useEffect(() => {
+    setxyContactLink({
+      x: linkRef.current.offsetLeft,
+      y: linkRef.current.offsetTop
+    });
+  }, []);
+  console.log(router.pathname);
   return (
     <>
       <motion.div
@@ -52,13 +61,20 @@ function HomePage({ pages }) {
               className={`morphoShadow button ${styles.contactButton}`}
               id="contactButton"
             >
-              <Link href="/">
+              <Link
+                href={{
+                  pathname: "/contact",
+                  query: { x: xyContactLink.x, y: xyContactLink.y }
+                }}
+                as={"/contact"}
+              >
                 <a
                   style={{
                     color: "#6c63ff",
                     fontWeight: "bold",
                     width: "100%"
                   }}
+                  ref={linkRef}
                 >
                   Contact
                 </a>

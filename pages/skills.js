@@ -35,10 +35,12 @@ const skills = () => {
               I specialize in JavaScript (TypeScript) and have experience
               working with React.js and Angular. On the client side I am
               proficient in HTML, CSS, SASS and popular frameworks: bootstrap,
-              semantic-ui, Angular Material, Onsen UI.
+              semantic-ui, Angular Material, Onsen UI. My development is
+              reinforced by basic knowledge of software version control system
+              Git.
             </p>
             <p>
-              I have also full-stack experience with small Projects on Back End
+              I have also full-stack experience as small Projects on Back End
               working with Node.js, SQL.
             </p>
             <p>

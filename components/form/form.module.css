@@ -1,0 +1,48 @@
+.form {
+  font-family: "Montserrat", sans-serif;
+  padding: 16px;
+  width: 320px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.input {
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.05);
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  border: 0;
+  outline: 0;
+  font-size: 16px;
+  border-radius: 320px;
+  padding: 16px;
+  background-color: #272641;
+  color: #fff;
+}
+.textfield {
+  resize: none;
+  border-radius: 24px;
+  height: 160px;
+  margin-bottom: 24px;
+}
+.button {
+  border: 0;
+  outline: 0;
+  font-size: 16px;
+  border-radius: 320px;
+  padding: 16px;
+  background-color: #272641;
+  color: rgb(108, 99, 255);
+  cursor: pointer;
+  width: 100%;
+}
+.button:hover {
+  box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.05),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+}

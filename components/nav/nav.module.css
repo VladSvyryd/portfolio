@@ -12,12 +12,10 @@
 @media (max-width: 1024px) {
   .navigation {
     width: 100%;
-    bottom: 0;
-    left: 0;
+    position: relative;
     height: auto;
     flex-direction: row;
-
-    padding: 7% 0;
+    padding: 15px 0;
   }
   .navigation > span {
     margin: 10px 24px;

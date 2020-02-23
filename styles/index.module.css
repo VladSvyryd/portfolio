@@ -4,6 +4,11 @@
   align-self: flex-start;
   margin-top: 20px;
 }
+.contactButton a {
+  display: block;
+  width: 100%;
+  padding: 10px 50px;
+}
 @media (max-width: 1024px) {
   .contactButton {
     align-self: center;

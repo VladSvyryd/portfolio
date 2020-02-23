@@ -23,11 +23,18 @@ body {
   user-select: none;
   cursor: default;
   overflow: hidden;
+  min-width: 360px;
 }
 .flexFrame {
   display: flex;
   flex-direction: row;
   height: 100%;
+}
+@media (max-width: 1024px) {
+  .flexFrame {
+    flex-direction: column-reverse;
+    overflow: auto;
+  }
 }
 .twoCol {
   display: flex;
@@ -144,7 +151,8 @@ h2.sub_headline {
   padding-left: 10%;
 }
 .homeColumn.about,
-.homeColumn.skills {
+.homeColumn.skills,
+.homeColumn.contact {
   padding-left: 5%;
 }
 
@@ -154,8 +162,11 @@ h2.sub_headline {
 }
 .morphoShadow.button {
   background: #272641;
-  padding: 10px 50px;
   border-radius: 15px;
+}
+.morphoShadow.button:hover {
+  box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.05),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .textContainer {
