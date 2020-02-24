@@ -14,6 +14,7 @@
     "@sendgrid/mail": "^6.5.3",
     "axios": "^0.19.2",
     "cross-env": "^7.0.0",
+    "formik": "^2.1.4",
     "framer-motion": "^1.8.4",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^9.2.1",

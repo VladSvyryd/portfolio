@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import Form from "../components/form/form";
 const Contact = ({ query }) => {
-  console.log(query);
   const anim_init_Desktop = {
     opacity: 0,
     translateX: `${query.x}`,
