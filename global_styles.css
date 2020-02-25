@@ -161,7 +161,8 @@ h2.sub_headline {
   box-shadow: -4px -4px 6px rgba(255, 255, 255, 0.08),
     6px 6px 6px rgba(0, 0, 0, 0.4);
 }
-.morphoShadow.button {
+.morphoShadow.button,
+div.morphoShadow {
   background: #272641;
   border-radius: 15px;
 }
@@ -244,7 +245,7 @@ h2.sub_headline {
     16px 16px 16px rgba(0, 0, 0, 0.4);
 }
 .popUp .error {
-  background: tomato;
+  background: #f44336;
   box-shadow: -8px -8px 12px rgba(255, 255, 255, 0.08),
     16px 16px 16px rgba(0, 0, 0, 0.4);
 }
