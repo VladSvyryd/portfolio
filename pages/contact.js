@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import Form from "../components/form/form";
+import Gmap from "../components/gmap/gmap";
+import mapStyles from "../components/gmap/mapStyles.js";
 const Contact = ({ query }) => {
   const anim_init_Desktop = {
     opacity: 0,
@@ -72,7 +74,9 @@ const Contact = ({ query }) => {
             flexDirection: "column",
             justifyContent: "center"
           }}
-        ></motion.div>
+        >
+          <Gmap mapStyles={mapStyles} isMarkerShown={true} />
+        </motion.div>
       </motion.div>
     </motion.div>
   );
