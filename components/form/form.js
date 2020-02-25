@@ -77,14 +77,14 @@ const form = () => {
   };
   const validate = value => {
     let errorMessage;
+    if (value.toLowerCase() === "alexsandr11@gmail.com") {
+      errorMessage = "Alex, Stop!!! This Page is not for games!!!";
+    }
+    if (value.toLowerCase() === "zarichna19@gmail.com") {
+      errorMessage = "Yuliya, Stop!!! This Page is not for games!!!";
+    }
     if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
       errorMessage = "Invalid email address";
-    }
-    if (
-      value.toLowerCase() === "alexsandr11@gmail.com" ||
-      value.toLowerCase() === "zarichna19@gmail.com "
-    ) {
-      errorMessage = "Stop, this Page is not for games!!!";
     }
     return errorMessage;
   };
@@ -131,7 +131,9 @@ const form = () => {
     };
   }, [isOpen]);
   return (
-    <motion.div style={{ display: "flex", width: "100%" }}>
+    <motion.div
+      style={{ display: "flex", width: "360px", position: "relative" }}
+    >
       <Formik
         initialValues={{ email: "", name: "", subject: "", message: "" }}
         onSubmit={(values, { setSubmitting }) =>
