@@ -70,8 +70,7 @@ const Contact = ({ query }) => {
           style={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
-            background: "red"
+            justifyContent: "center"
           }}
         ></motion.div>
       </motion.div>
