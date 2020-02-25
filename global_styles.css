@@ -193,7 +193,11 @@ div.morphoShadow {
   fill: #6b63ff !important;
   filter: drop-shadow(0px 0px 6px #6b63ff);
 }
-
+.selected_contact svg,
+.selected_contact g {
+  fill: #6b63ff !important;
+  filter: drop-shadow(0px 0px 6px #6b63ff);
+}
 .borderSpinner:before {
   content: "";
   position: absolute;
@@ -274,4 +278,27 @@ a[href^="https://maps.google.com/maps"] {
 }
 .gmnoprint div {
   background: none !important;
+}
+
+.gmap_infobox {
+  padding: 12px;
+  width: 200px;
+  margin: 30px;
+  background: #6b63ff;
+  color: #fefefe;
+  box-shadow: -4px -4px 22px rgba(255, 255, 255, 0.03),
+    6px 6px 6px rgba(0, 1, 0, 0.4);
+  border-radius: 16px;
+}
+.gmap_infobox p {
+  margin: 0;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  pointer-events: none;
+  overflow: hidden;
 }

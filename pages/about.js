@@ -1,5 +1,6 @@
 import { Nav } from "../components/nav/Nav";
 import { motion } from "framer-motion";
+
 const anim_init_Desktop = {
   opacity: 0,
   translateX: "+100%"
@@ -37,10 +38,18 @@ const about = () => {
         </h1>
         <div className="textContainer">
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero ullam
-            eum quo saepe vitae animi ex, voluptatem nostrum! Voluptatibus
-            debitis quo aspernatur quidem sequi voluptatum est laborum quia
-            delectus ipsa?
+            I am a constantly learning, developing and experimenting web
+            developer. Open to new ideas and innovative solutions of problems.
+          </p>
+          <p>
+            Well organized, open minded, teamplayer with desire to explore and
+            brake barriers. A fan of cinema, table games, workout, TV series,
+            guitar player and travel lover.
+          </p>
+          <p>
+            Interested in the entire frontend spectrum as well as free to
+            explore and learn backend world. Would like to work on promising
+            projeects with positive people and.
           </p>
         </div>
       </div>

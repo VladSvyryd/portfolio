@@ -1,4 +1,4 @@
-import { Nav } from "../components/nav/Nav";
+import SkillsAnimation from "../components/skillsAnimation/skillsAnimation";
 import { motion } from "framer-motion";
 const anim_init_Desktop = {
   opacity: 0,
@@ -66,7 +66,9 @@ const skills = () => {
             flexDirection: "column",
             justifyContent: "center"
           }}
-        ></div>
+        >
+          <SkillsAnimation />
+        </div>
       </motion.div>
     </>
   );

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Form from "../components/form/form";
 import Gmap from "../components/gmap/gmap";
 import mapStyles from "../components/gmap/mapStyles.js";
+
 const Contact = ({ query }) => {
   const anim_init_Desktop = {
     opacity: 0,
