@@ -1,18 +1,34 @@
-import SkillsAnimation from "../components/skillsAnimation/skillsAnimation";
 import { motion } from "framer-motion";
+import skill from "../styles/skills.module.css";
 const anim_init_Desktop = {
   opacity: 0,
   translateX: "+100%"
 };
 const anim_finish_Desktop = {
   opacity: 1,
-  scale: 1,
   translateX: "0%",
   transition: {
-    duration: 0.5,
-    type: "spring"
+    duration: 1
   }
 };
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delay: 0.5,
+      when: "beforeChildren",
+      duration: 0.5,
+      staggerChildren: 0.2
+    }
+  }
+};
+const item = {
+  hidden: { y: 20, scale: 0 },
+  visible: { y: 0, scale: 1 }
+};
+
 const skills = () => {
   return (
     <>
@@ -64,10 +80,57 @@ const skills = () => {
           style={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center"
+            justifyContent: "center",
+            position: "relative"
           }}
         >
-          <SkillsAnimation />
+          <motion.div
+            variants={container}
+            className={` ${skill.grid}`}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div
+              variants={item}
+              className={`${skill.js} ${skill.icon}`}
+            />
+            <motion.div
+              variants={item}
+              className={`${skill.css} ${skill.icon}`}
+            />
+            <motion.div
+              variants={item}
+              className={`${skill.html} ${skill.icon}`}
+            />
+            <motion.div
+              variants={item}
+              className={`${skill.next} ${skill.icon}`}
+            />
+            <motion.div
+              variants={item}
+              className={`${skill.react} ${skill.icon}`}
+            />
+            <motion.div
+              variants={item}
+              className={`${skill.angular} ${skill.icon}`}
+            />
+            <motion.div
+              variants={item}
+              className={`${skill.jQuery} ${skill.icon}`}
+            />
+            <motion.div
+              variants={item}
+              className={`${skill.electron} ${skill.icon}`}
+            />
+            <motion.div
+              variants={item}
+              className={`${skill.sass} ${skill.icon}`}
+            />
+            <motion.div
+              variants={item}
+              className={`${skill.ts} ${skill.icon}`}
+            />
+          </motion.div>
         </div>
       </motion.div>
     </>

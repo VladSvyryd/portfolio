@@ -1,0 +1,55 @@
+.js {
+  background-image: url(../assets/js.svg);
+}
+.css {
+  background-image: url(../assets/css.svg);
+}
+.html {
+  background-image: url(../assets/html.svg);
+}
+.next {
+  background-image: url(../assets/next.svg);
+}
+.react {
+  background-image: url(../assets/react.svg);
+}
+.angular {
+  background-image: url(../assets/angular.svg);
+}
+.jQuery {
+  background-image: url(../assets/jQuery.svg);
+}
+.electron {
+  background-image: url(../assets/electron.svg);
+}
+.ts {
+  background-image: url(../assets/ts.svg);
+}
+.sass {
+  background-image: url(../assets/sass.svg);
+}
+.icon {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+.grid {
+  width: 70%;
+  height: 40%;
+  display: grid;
+  overflow: hidden;
+  margin: 0;
+  list-style: none;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  align-items: center;
+  justify-items: center;
+  box-shadow: -4px -4px 10px rgba(255, 255, 255, 0.08),
+    6px 6px 6px rgba(0, 0, 0, 0.4);
+}

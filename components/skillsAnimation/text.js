@@ -14,14 +14,14 @@ const Text = ({
   const config = useMemo(
     () => ({
       font,
-      size: 40,
-      height: 30,
-      curveSegments: 32,
+      size: 20,
+      height: 5,
+      curveSegments: 12,
       bevelEnabled: true,
-      bevelThickness: 6,
+      bevelThickness: 10,
       bevelSize: 2.5,
       bevelOffset: 0,
-      bevelSegments: 8
+      bevelSegments: 4
     }),
     [font]
   );

@@ -1,52 +1,48 @@
-import ReactDOM from "react-dom";
-import * as THREE from "three";
-import React, { Suspense, useRef } from "react";
-import { Canvas, useFrame } from "react-three-fiber";
+import React, { Suspense, useRef, useState } from "react";
+import { Canvas, useFrame, Euler } from "react-three-fiber";
 import Text from "./text";
-function Jumbo() {
+function Jumbo(props) {
   const ref = useRef();
   useFrame(
     ({ clock }) =>
-      (ref.current.rotation.x = ref.current.rotation.y = ref.current.rotation.z =
-        Math.sin(clock.getElapsedTime()) * 0.3)
+      (ref.current.rotation.y = Math.sin(clock.getElapsedTime()) * 0.3)
   );
   return (
-    <group ref={ref}>
-      <Text hAlign="left" position={[0, 4.2, 0]} children="JAVASCRIPT" />
-      <Text hAlign="left" position={[0, 0, 0]} children="HTML" />
-      <Text hAlign="left" position={[0, -4.2, 0]} children="CSS" />
-      <Text hAlign="left" position={[12, 0, 0]} children="4" size={3} />
-      <Text hAlign="left" position={[16.5, -4.2, 0]} children="X" />
+    <group ref={ref} rotation={props.rotation} position={props.position}>
+      <Text
+        hAlign="center"
+        vAlign="center"
+        children="JAVASCRIPT"
+        color="skyblue"
+      />
     </group>
   );
 }
-function Box(props) {
-  // This reference will give us direct access to the mesh
-  const mesh = useRef();
 
-  // Set up state for the hovered and active state
-
-  // Rotate mesh every frame, this is outside of React without overhead
-  useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
-
-  return (
-    <mesh {...props} ref={mesh} scale={[1.5, 1.5, 1.5]}>
-      <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
-      <meshStandardMaterial attach="material" color={"orange"} />
-    </mesh>
-  );
-}
 const SkillsAnimation = () => {
+  const [clicked, set] = useState(false);
+
   return (
-    <Canvas camera={{ position: [0, 0, 64] }} className="canvas">
-      <ambientLight intensity={2} />
-      <pointLight position={[40, 40, 40]} />
-      <Suspense fallback={null}>
-        {/* <Box position={[-1.2, -10, 0]} />
-        <Box position={[1.2, -10, 0]} /> */}
-        <Jumbo />
-      </Suspense>
-    </Canvas>
+    <>
+      <Canvas camera={{ position: [0, 0, 44] }} className="canvas">
+        {/* <ambientLight intensity={2} /> */}
+        <pointLight position={[10, 10, 10]} />
+        <Suspense fallback={null}>
+          {clicked && (
+            <>
+              <Jumbo position={[0, 0, 0]} />
+              <Jumbo position={[-30, 5, 0]} />
+              <Jumbo position={[30, 5, 0]} rotation={[0, -0.53, 0]} />
+            </>
+          )}
+        </Suspense>
+      </Canvas>
+      {!clicked && (
+        <button className="canvas_button" onClick={() => set(true)}>
+          Load duck w/ 1s delay
+        </button>
+      )}
+    </>
   );
 };
 
