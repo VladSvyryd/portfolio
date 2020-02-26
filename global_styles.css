@@ -130,6 +130,9 @@ h2.sub_headline {
   h2.sub_headline {
     max-width: 395px;
   }
+  .textContainer {
+    width: 80% !important;
+  }
 }
 @media (max-width: 500px) {
   h1.headline {
