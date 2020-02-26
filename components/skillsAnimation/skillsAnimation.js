@@ -42,8 +42,8 @@ const SkillsAnimation = () => {
       <ambientLight intensity={2} />
       <pointLight position={[40, 40, 40]} />
       <Suspense fallback={null}>
-        <Box position={[-1.2, -10, 0]} />
-        <Box position={[1.2, -10, 0]} />
+        {/* <Box position={[-1.2, -10, 0]} />
+        <Box position={[1.2, -10, 0]} /> */}
         <Jumbo />
       </Suspense>
     </Canvas>
