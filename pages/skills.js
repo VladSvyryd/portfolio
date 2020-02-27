@@ -55,8 +55,8 @@ const skills = () => {
             knowledge of software version control system Git.
           </p>
           <p>
-            I have also full-stack experience as small Projects on Back End
-            working with Node.js, SQL.
+            I have also full-stack experience in Projects on Back End working
+            with Node.js, SQL.
           </p>
           <p>
             Visit my{" "}

@@ -9,8 +9,8 @@ const trans2 = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 + 117}px,0)`;
 const trans3 = (x, y) => `translate3d(${x / 6}px,${y / 6 + 75}px,0)`;
 const trans4 = (x, y) => `translate3d(${x / 6.5 + 380}px,${y / 6.5 + 260}px,0)`;
 const initialAnimationConfig = { mass: 10, tension: 1050, friction: 140 };
-const Parallax = () => {
-  const [props, set] = useSpring(() => ({
+const Parallax = props => {
+  const [propsxy, set] = useSpring(() => ({
     xy: [0, 0],
     config: initialAnimationConfig
   }));
@@ -124,11 +124,11 @@ const Parallax = () => {
     >
       <animated.div
         className={styles.card1}
-        style={{ transform: props.xy.interpolate(trans1) }}
+        style={{ transform: propsxy.xy.interpolate(trans1) }}
       />
       <animated.div
         className={styles.card2}
-        style={{ transform: props.xy.interpolate(trans2) }}
+        style={{ transform: propsxy.xy.interpolate(trans2) }}
       >
         <div className={styles.secret}>
           <form onSubmit={revealTheSectret}>
@@ -149,7 +149,7 @@ const Parallax = () => {
           animate={isOpen ? "visible" : "hidden"}
           ref={screenRef}
         >
-          {new Array(100).fill(" ").map((el, index) => {
+          {new Array(0).fill(" ").map((el, index) => {
             let r = Math.floor(Math.random() * screen.w) + 1;
             return (
               <motion.div
@@ -162,15 +162,24 @@ const Parallax = () => {
               </motion.div>
             );
           })}
+          <div
+            style={{
+              fontSize: "10px",
+              padding: "15px 20px",
+              lineHeight: "0.8"
+            }}
+          >
+            {props.typeMotion}
+          </div>
         </motion.div>
       </animated.div>
       <animated.div
         className={styles.card3}
-        style={{ transform: props.xy.interpolate(trans3) }}
+        style={{ transform: propsxy.xy.interpolate(trans3) }}
       />
       <animated.div
         className={styles.card4}
-        style={{ transform: props.xy.interpolate(trans4) }}
+        style={{ transform: propsxy.xy.interpolate(trans4) }}
         onMouseDown={e => isDown(e)}
         onMouseUp={e => isUp(e)}
         onMouseLeave={e => isUp(e)}

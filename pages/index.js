@@ -1,9 +1,7 @@
 import Link from "../components/link/link";
-import { useRouter } from "next/router";
 import Parallax from "../components/parralax/parallax";
-import { useState, useRef, useEffect } from "react";
 import styles from "../styles/index.module.css";
-
+import Typed from "react-typed";
 import { motion } from "framer-motion";
 const anim_init_Desktop = {
   opacity: 0,
@@ -23,7 +21,8 @@ const anim_init_Mobile = {
   translateX: "+100%"
 };
 const anim_finish_Mobile = { opacity: 1, translateX: "0%" };
-
+const textArray =
+  'import React, { useState } from "react"; ^1000\n <br> <br> const Portfolio=()=> { ^1000\n <br> <br> const [success, setSuccess] = useState(true); ^500\n <br> <br> const moto=["<b>Just</b>","<b>Do</b>","<b>It</b>","<b>!!!</b>"] <br> <br> ^300\n return ( <br> <br> moto.map(word=>(<i>word</i>) <br> <br> ); <br> <br> ^200\n }';
 function HomePage() {
   return (
     <>
@@ -67,7 +66,16 @@ function HomePage() {
           </div>
         </div>
         <div>
-          <Parallax />
+          <Parallax
+            typeMotion={
+              <Typed
+                strings={[textArray]}
+                typeSpeed={40}
+                //backSpeed={50}
+                //loop
+              ></Typed>
+            }
+          />
         </div>
       </motion.div>
     </>
