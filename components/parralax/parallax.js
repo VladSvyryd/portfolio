@@ -8,6 +8,8 @@ const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
 const trans2 = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 + 117}px,0)`;
 const trans3 = (x, y) => `translate3d(${x / 6}px,${y / 6 + 75}px,0)`;
 const trans4 = (x, y) => `translate3d(${x / 6.5 + 380}px,${y / 6.5 + 260}px,0)`;
+const trans5 = (x, y) => `translate3d(${x / 8 + 165}px,${y / 8 - 92}px,0)`;
+
 const initialAnimationConfig = { mass: 10, tension: 1050, friction: 140 };
 const Parallax = props => {
   const [propsxy, set] = useSpring(() => ({
@@ -162,17 +164,10 @@ const Parallax = props => {
               </motion.div>
             );
           })}
-          <div
-            style={{
-              fontSize: "10px",
-              padding: "15px 20px",
-              lineHeight: "0.8"
-            }}
-          >
-            {props.typeMotion}
-          </div>
+          <div className={styles.typed}>{props.typeMotion}</div>
         </motion.div>
       </animated.div>
+
       <animated.div
         className={styles.card3}
         style={{ transform: propsxy.xy.interpolate(trans3) }}
