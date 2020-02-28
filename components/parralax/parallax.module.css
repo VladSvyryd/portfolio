@@ -44,7 +44,6 @@
   max-width: 7vh;
   /*max-height: 152px;*/
   background-image: url(../../assets/flower_svg.svg);
-  transition: filter 3s ease-in;
 }
 .card5 {
   width: 100%;
@@ -52,7 +51,6 @@
   max-width: 28vh;
   /*max-height: 152px;*/
   background-image: url(../../assets/monitor.svg);
-  transition: filter 3s ease-in;
 }
 
 .container {

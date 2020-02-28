@@ -22,20 +22,18 @@ const Parallax = props => {
   const [startLongPress, setStartLongPress] = useState(false);
   const [screen, setScreen] = useState({ w: 100, h: 200 });
   const [isOpen, toggleOpen] = useCycle(false, true);
+  const handleClicked = () => {
+    toggleOpen();
+    startLongPress(old => !old);
+  };
   const isDown = ({ currentTarget }) => {
     currentTarget.style = "filter: drop-shadow(0px 0px 16px rgb(255, 0, 0));";
-    setInputState(false);
-
-    setStartLongPress(true);
   };
   const isUp = ({ currentTarget }) => {
     currentTarget.style = "filter: 0;";
-
-    setStartLongPress(false);
   };
   const callback = () => {
-    inputRef.current.focus();
-    console.log("triggered");
+    toggleOpen();
   };
   const revealTheSectret = e => {
     e.preventDefault();
@@ -151,8 +149,9 @@ const Parallax = props => {
           animate={isOpen ? "visible" : "hidden"}
           ref={screenRef}
         >
-          {new Array(0).fill(" ").map((el, index) => {
-            let r = Math.floor(Math.random() * screen.w) + 1;
+          {new Array(50).fill(" ").map((el, index) => {
+            let r =
+              Math.floor(Math.random() * screenRef.current.clientWidth) + 1;
             return (
               <motion.div
                 key={index}
@@ -175,11 +174,9 @@ const Parallax = props => {
       <animated.div
         className={styles.card4}
         style={{ transform: propsxy.xy.interpolate(trans4) }}
+        onClick={e => handleClicked(e)}
         onMouseDown={e => isDown(e)}
         onMouseUp={e => isUp(e)}
-        onMouseLeave={e => isUp(e)}
-        onTouchStart={e => isDown(e)}
-        onTouchEnd={e => isUp(e)}
       />
     </div>
   );
