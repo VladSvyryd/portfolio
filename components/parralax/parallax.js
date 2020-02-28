@@ -150,8 +150,7 @@ const Parallax = props => {
           ref={screenRef}
         >
           {new Array(50).fill(" ").map((el, index) => {
-            let r =
-              Math.floor(Math.random() * screenRef.current.clientWidth) + 1;
+            let r = Math.floor(Math.random() * screen) + 1;
             return (
               <motion.div
                 key={index}
