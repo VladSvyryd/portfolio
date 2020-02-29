@@ -153,6 +153,7 @@ h2.sub_headline {
   justify-content: center;
   width: 100%;
   padding-left: 10%;
+  overflow: hidden;
 }
 .homeColumn.about {
   position: relative;
