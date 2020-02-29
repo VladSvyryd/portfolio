@@ -49,12 +49,12 @@ function HomePage() {
   const item = {
     hidden: ([randomX, w, h]) => ({
       x: randomX,
-      y: h / 1.7,
+      y: h,
       opacity: 0.5
     }),
     visible: ([randomX, w, h]) => ({
       x: randomX,
-      y: -h * 1,
+      y: -h * 1.5,
       opacity: 1,
       transition: {
         x: { ease: "easeInOut", duration: 15.5 },
