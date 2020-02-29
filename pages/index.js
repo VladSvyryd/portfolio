@@ -133,7 +133,7 @@ function HomePage() {
             {heartArr.map((el, index) => {
               let screenW = screenRef.current.clientWidth;
               let screenH = screenRef.current.clientHeight;
-              let r = Math.floor(Math.random() * screenW) + 1;
+              let r = Math.floor((Math.random() * screenW) / 2) + 1;
               return (
                 <motion.div
                   key={index}
