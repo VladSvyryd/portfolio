@@ -14,6 +14,7 @@ const anim_finish_Desktop = {
     type: "spring"
   }
 };
+
 const about = () => {
   const icon = {
     hidden: {
@@ -25,6 +26,7 @@ const about = () => {
       fill: "rgba(255, 255, 255, 1)"
     }
   };
+
   return (
     <motion.div
       exit={{ opacity: 0, scale: 0 }}
@@ -32,7 +34,13 @@ const about = () => {
       initial={anim_init_Desktop}
       animate={anim_finish_Desktop}
     >
-      <div className="homeColumn about">
+      <motion.div
+        className="homeColumn about"
+        variants={container}
+        initial={false}
+        animate={isOpen ? "visible" : "hidden"}
+        ref={screenRef}
+      >
         <h1 aria-label="About me" className="headline">
           About me
         </h1>
@@ -52,15 +60,16 @@ const about = () => {
             projeects with positive people and.
           </p>
         </div>
+      </motion.div>
+
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quo
+          aspernatur facilis a similique impedit eligendi possimus sed quaerat
+          quisquam quas, consequatur fugiat beatae non distinctio nobis delectus
+          rem minima.
+        </p>
       </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          width: "300px"
-        }}
-      ></div>
     </motion.div>
   );
 };

@@ -21,7 +21,6 @@ const Parallax = props => {
   const [inputState, setInputState] = useState(true);
   const [startLongPress, setStartLongPress] = useState(false);
   const [screen, setScreen] = useState({ w: 100, h: 200 });
-  const [isOpen, toggleOpen] = useCycle(false, true);
   const handleClicked = () => {
     toggleOpen();
     startLongPress(old => !old);
@@ -43,53 +42,7 @@ const Parallax = props => {
     }
   };
   const inputRef = useRef(null);
-  const screenRef = useRef(null);
 
-  const heart = () => {
-    return (
-      <svg
-        className="heart"
-        height="18pt"
-        viewBox="0 -20 464 464"
-        width="18pt"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="m340 0c-44.773438.00390625-86.066406 24.164062-108 63.199219-21.933594-39.035157-63.226562-63.19531275-108-63.199219-68.480469 0-124 63.519531-124 132 0 172 232 292 232 292s232-120 232-292c0-68.480469-55.519531-132-124-132zm0 0"
-          fill="#ff6243"
-        />
-        <path
-          d="m32 132c0-63.359375 47.550781-122.359375 108.894531-130.847656-5.597656-.769532-11.242187-1.15625025-16.894531-1.152344-68.480469 0-124 63.519531-124 132 0 172 232 292 232 292s6-3.113281 16-8.992188c-52.414062-30.824218-216-138.558593-216-283.007812zm0 0"
-          fill="#ff5023"
-        />
-      </svg>
-    );
-  };
-  const item = {
-    hidden: randomX => ({
-      y: screen.h + 30,
-      x: screen.w,
-      opacity: 0.5
-    }),
-    visible: randomX => ({
-      y: -25,
-      x: randomX - 20,
-      opacity: 1,
-      transition: {
-        duration: 1.5
-      }
-    })
-  };
-  const container = {
-    hidden: { opacity: 1 },
-    visible: i => ({
-      opacity: 1,
-      transition: {
-        delay: 0.3,
-        staggerChildren: 0.3
-      }
-    })
-  };
   const handleChange = value => {
     console.log(value);
     setsi(value);
@@ -105,11 +58,7 @@ const Parallax = props => {
       clearTimeout(timerId);
     };
   }, [startLongPress]);
-  useEffect(() => {
-    let parentWidth = screenRef.current.clientWidth;
-    let parentHeight = screenRef.current.clientHeight;
-    setScreen({ w: parentWidth, h: parentHeight });
-  }, []);
+
   return (
     <div
       className={styles.container}
@@ -130,40 +79,9 @@ const Parallax = props => {
         className={styles.card2}
         style={{ transform: propsxy.xy.interpolate(trans2) }}
       >
-        <div className={styles.secret}>
-          <form onSubmit={revealTheSectret}>
-            <input
-              className={styles.secretInput}
-              type="text"
-              value={si}
-              ref={inputRef}
-              disabled={inputState}
-              onChange={event => handleChange(event.target.value)}
-            />
-          </form>
-        </div>
-        <motion.div
-          className={styles.heartScreen}
-          variants={container}
-          initial={false}
-          animate={isOpen ? "visible" : "hidden"}
-          ref={screenRef}
-        >
-          {new Array(50).fill(" ").map((el, index) => {
-            let r = Math.floor(Math.random() * screen) + 1;
-            return (
-              <motion.div
-                key={index}
-                className={styles.heartItem}
-                custom={r}
-                variants={item}
-              >
-                {heart()}
-              </motion.div>
-            );
-          })}
+        <div className={styles.heartScreen}>
           <div className={styles.typed}>{props.typeMotion}</div>
-        </motion.div>
+        </div>
       </animated.div>
 
       <animated.div
