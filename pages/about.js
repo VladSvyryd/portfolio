@@ -34,13 +34,7 @@ const about = () => {
       initial={anim_init_Desktop}
       animate={anim_finish_Desktop}
     >
-      <motion.div
-        className="homeColumn about"
-        variants={container}
-        initial={false}
-        animate={isOpen ? "visible" : "hidden"}
-        ref={screenRef}
-      >
+      <div>
         <h1 aria-label="About me" className="headline">
           About me
         </h1>
@@ -60,7 +54,7 @@ const about = () => {
             projeects with positive people and.
           </p>
         </div>
-      </motion.div>
+      </div>
 
       <div>
         <p>
