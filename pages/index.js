@@ -2,8 +2,7 @@ import Link from "../components/link/link";
 import Parallax from "../components/parralax/parallax";
 import styles from "../styles/index.module.css";
 import Typed from "react-typed";
-import { motion, useCycle } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 const anim_init_Desktop = {
   opacity: 0,

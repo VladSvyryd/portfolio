@@ -36,7 +36,8 @@ body {
     overflow-x: hidden;
   }
 }
-.twoCol {
+.twoCol,
+.skills {
   display: flex;
   flex-direction: row;
   height: 100%;
@@ -51,14 +52,28 @@ body {
   width: 50%;
 }
 @media (max-width: 1024px) {
-  .twoCol {
+  .twoCol,
+  .skills {
     margin-left: 0px;
   }
   .twoCol > div:nth-child(1) {
-    width: 100%;
+    width: 100% !important;
     z-index: 2;
   }
   .twoCol > div:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.1;
+    z-index: 1;
+  }
+  .skills .left {
+    width: 100% !important;
+    z-index: 2;
+  }
+  .skills .right {
     position: absolute;
     top: 0;
     left: 0;
@@ -101,6 +116,12 @@ h2.sub_headline {
   }
   h2.sub_headline {
     max-width: 100%;
+  }
+  .skills .left {
+    flex: 5 !important;
+  }
+  .skills .right {
+    flex: 5 !important;
   }
 }
 
@@ -158,9 +179,16 @@ h2.sub_headline {
   position: relative;
 }
 .homeColumn.about,
-.homeColumn.skills,
+.skills .homeColumn,
 .homeColumn.contact {
   padding-left: 5%;
+}
+
+.skills .left {
+  flex: 3;
+}
+.skills .right {
+  flex: 7;
 }
 
 .morphoShadow {
