@@ -34,7 +34,7 @@ const about = () => {
       initial={anim_init_Desktop}
       animate={anim_finish_Desktop}
     >
-      <div>
+      <div className="homeColumn about">
         <h1 aria-label="About me" className="headline">
           About me
         </h1>
@@ -56,14 +56,7 @@ const about = () => {
         </div>
       </div>
 
-      <div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quo
-          aspernatur facilis a similique impedit eligendi possimus sed quaerat
-          quisquam quas, consequatur fugiat beatae non distinctio nobis delectus
-          rem minima.
-        </p>
-      </div>
+      <div></div>
     </motion.div>
   );
 };
