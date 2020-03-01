@@ -28,10 +28,7 @@ const meta = () => {
         property="og:description"
         content="Front End developer with experience building responsive websites and web applications."
       />
-      <meta
-        property="og:image"
-        content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
-      />
+      <meta property="og:image" content="/public/metaPic.png" />
 
       {"<!-- Twitter -->"}
       <meta property="twitter:card" content="summary_large_image" />
@@ -44,10 +41,7 @@ const meta = () => {
         property="twitter:description"
         content="Front End developer with experience building responsive websites and web applications."
       />
-      <meta
-        property="twitter:image"
-        content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
-      />
+      <meta property="twitter:image" content="../public/metaPic.png" />
       <meta
         name="keywords"
         content="berlin, frontend, Front End Developer, React, pwa, Webanwendung"
