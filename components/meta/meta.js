@@ -28,7 +28,7 @@ const meta = () => {
         property="og:description"
         content="Front End developer with experience building responsive websites and web applications."
       />
-      <meta property="og:image" content="/metaPic.png" />
+      <meta property="og:image" content="./metaPic.png" />
 
       {"<!-- Twitter -->"}
       <meta property="twitter:card" content="summary_large_image" />
@@ -41,7 +41,7 @@ const meta = () => {
         property="twitter:description"
         content="Front End developer with experience building responsive websites and web applications."
       />
-      <meta property="twitter:image" content="/metaPic.png" />
+      <meta property="twitter:image" content="./metaPic.png" />
       <meta
         name="keywords"
         content="berlin, frontend, Front End Developer, React, pwa, Webanwendung"
