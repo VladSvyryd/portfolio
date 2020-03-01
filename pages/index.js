@@ -19,7 +19,7 @@ const anim_finish_Desktop = {
 };
 
 const textArray =
-  'import React, { useState } from "react"; ^1000\n <br> <br> const Portfolio=()=> { ^1000\n <br> <br> const [success, setSuccess] = useState(true); ^500\n <br> <br> const moto=["<b>Just</b>","<b>Do</b>","<b>It</b>","<b>!!!</b>"] <br> <br> ^300\n return ( <br> <br> moto.map(word=>(<i>word</i>) <br> <br> ); <br> <br> ^200\n }';
+  'import React { useState } from "react"; ^1000\n <br> <br> const Portfolio=()=> { ^1000\n <br> <br> const [success, setS] = useState(true); ^500\n <br> <br> const moto=["<b>Just</b>","<b>Do</b>","<b>It</b>","<b>!!!</b>"] <br> <br> ^300\n return ( <br> <br> moto.map(word=>(<i>word</i>) <br> <br> ); <br> <br> ^200\n }';
 function HomePage() {
   return (
     <>
