@@ -1,4 +1,3 @@
-import { Nav } from "../components/nav/Nav";
 import { motion } from "framer-motion";
 
 const anim_init_Desktop = {
