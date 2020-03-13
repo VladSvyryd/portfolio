@@ -432,7 +432,7 @@ const about = () => {
   const spring = {
     type: "spring",
     damping: 10,
-    stiffness: 300
+    stiffness: 200
   };
 
   const initialColors = initialIcons.map((e, i) => i);
