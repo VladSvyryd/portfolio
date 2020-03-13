@@ -1,0 +1,16 @@
+.animeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.animeBox {
+  width: 300px;
+  height: 300px;
+}
+
+.guy {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
