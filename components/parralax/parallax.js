@@ -91,9 +91,6 @@ const Parallax = props => {
       <animated.div
         className={styles.card4}
         style={{ transform: propsxy.xy.interpolate(trans4) }}
-        onClick={e => handleClicked(e)}
-        onMouseDown={e => isDown(e)}
-        onMouseUp={e => isUp(e)}
       />
     </div>
   );
