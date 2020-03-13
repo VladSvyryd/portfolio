@@ -416,14 +416,11 @@ const about = () => {
   const f = {
     hidden: {
       opacity: 0,
-      pathLength: 0,
-      fill: "rgba(255, 255, 255, 0)"
+      pathLength: 0
     },
     visible: {
       opacity: 1,
       pathLength: 1,
-
-      fill: "#3f3d56",
       transition: {
         duration: 2,
         ease: "easeIn"
@@ -495,7 +492,7 @@ const about = () => {
               viewBox="0 0 213.481 544.846"
             >
               <motion.path
-                variants={f}
+                fill="#3f3d56"
                 initial="hidden"
                 animate="visible"
                 id="Pfad_61"
