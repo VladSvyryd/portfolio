@@ -100,7 +100,7 @@ h1.headline {
   margin-bottom: 10px;
 }
 h2.sub_headline {
-  color: grey;
+  color: #919191;
   font-size: 14px;
   letter-spacing: 2px;
   transition: width 1s ease;
