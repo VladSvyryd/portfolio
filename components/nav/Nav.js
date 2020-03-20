@@ -7,7 +7,7 @@ export const Nav = () => {
     <div className={styles.navigation}>
       <Morpho_button>
         <Link href="/" activeClass={"selected_home"}>
-          <a className={styles.homeIcon}>
+          <a className={styles.homeIcon} aria-label="home">
             <svg
               fill="#000000"
               xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +23,7 @@ export const Nav = () => {
       </Morpho_button>
       <Morpho_button>
         <Link href="/about" activeClass={"selected_about"}>
-          <a className={styles.aboutIcon}>
+          <a className={styles.aboutIcon} aria-label="about">
             <svg
               height="30px"
               viewBox="-10 0 512 512.00111"
@@ -40,7 +40,7 @@ export const Nav = () => {
       </Morpho_button>
       <Morpho_button>
         <Link href="/skills" activeClass={"selected_skills"}>
-          <a className={styles.skillsIcon}>
+          <a className={styles.skillsIcon} aria-label="skills">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
@@ -72,7 +72,7 @@ export const Nav = () => {
       </Morpho_button>
       <Morpho_button>
         <Link href="/contact" activeClass={"selected_contact"}>
-          <a className={styles.mailIcon}>
+          <a className={styles.mailIcon} aria-label="contact">
             <svg
               version="1.1"
               id="Capa_1"
