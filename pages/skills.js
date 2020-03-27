@@ -86,7 +86,7 @@ const skills = () => {
             alignItems: "center"
           }}
         >
-          {/* <motion.div 
+          <motion.div
             className={` ${skill.skillsIdea}`}
             variants={container}
             initial="hidden"
@@ -151,7 +151,6 @@ const skills = () => {
               </motion.div>
             </motion.div>
           </motion.div>
-          */}
         </div>
       </motion.div>
     </>
