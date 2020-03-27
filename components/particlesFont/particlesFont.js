@@ -107,7 +107,6 @@ export default class ParticlesFont extends Component {
     this.setState({
       resized: true
     });
-    this.forceUpdate();
   };
   render() {
     return this.state.resized ? (
