@@ -1,35 +1,35 @@
 .js {
-  background-image: url(../assets/js.svg);
+  background-image: url(/js.svg);
 }
 .css {
-  background-image: url(../assets/css.svg);
+  background-image: url(/css.svg);
 }
 .html {
-  background-image: url(../assets/html.svg);
+  background-image: url(/html.svg);
 }
 .next {
-  background-image: url(../assets/next.svg);
+  background-image: url(/next.svg);
 }
 .react {
-  background-image: url(../assets/react.svg);
+  background-image: url(/react.svg);
 }
 .angular {
-  background-image: url(../assets/angular.svg);
+  background-image: url(/angular.svg);
 }
 .jQuery {
-  background-image: url(../assets/jQuery.svg);
+  background-image: url(/jQuery.svg);
 }
 .electron {
-  background-image: url(../assets/electron.svg);
+  background-image: url(/electron.svg);
 }
 .ts {
-  background-image: url(../assets/ts.svg);
+  background-image: url(/ts.svg);
 }
 .sass {
-  background-image: url(../assets/sass.svg);
+  background-image: url(/sass.svg);
 }
 .git {
-  background-image: url(../assets/git.svg);
+  background-image: url(/git.svg);
 }
 .icon {
   display: flex;
@@ -41,7 +41,7 @@
 }
 .sky {
   width: 100%;
-  background-image: url(../assets/sky.svg);
+  background-image: url(/sky.svg);
   height: 100%;
   max-height: 474px;
   background-repeat: no-repeat;
@@ -73,7 +73,7 @@
   height: 100%;
   max-width: 800px;
   max-height: 770px;
-  background-image: url(../assets/skillsIdea.svg);
+  background-image: url(/skillsIdea.svg);
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: contain;
@@ -85,7 +85,7 @@
   .skillsIdea {
     width: 100%;
     height: 100%;
-    background-image: url(../assets/skillsIdea.svg);
+    background-image: url(/skillsIdea.svg);
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: contain;

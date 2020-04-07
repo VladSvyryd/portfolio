@@ -1,21 +1,62 @@
 .container {
-  width: 300px;
-  height: 150px;
-  display: flex;
-  place-content: center;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 30px;
-  margin: auto;
-}
-
-.item {
-  width: 150px;
-  height: 150px;
-  background: white;
-  border-radius: inherit;
-}
-
-.svg {
   width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  border-radius: 30px;
+}
+@media (max-width: 1024px) {
+  .grid {
+    padding: 0px;
+    margin-left: 0px;
+  }
+}
+
+.grid {
+  display: grid;
+  width: 100%;
+  margin-left: 90px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.grid_item {
+  width: 400px;
+  height: 300px;
+  perspective: 1000px;
+  justify-self: center;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+}
+.grid_item_inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  box-shadow: rgba(255, 255, 255, 0.05) -2px -2px 3px,
+    rgba(0, 0, 0, 0.2) 3px 3px 3px;
+  z-index: 0;
+}
+
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  border-radius: 15px;
+}
+
+.front {
+  z-index: 0;
+  filter: brightness(0.6);
+}
+.back {
+  transform: rotateY(180deg);
+  background: yellow;
 }
