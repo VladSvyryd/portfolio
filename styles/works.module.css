@@ -40,6 +40,7 @@
   box-shadow: rgba(255, 255, 255, 0.05) -2px -2px 3px,
     rgba(0, 0, 0, 0.2) 3px 3px 3px;
   z-index: 0;
+  border-radius: 15px;
 }
 
 .front,
@@ -48,15 +49,81 @@
   height: 100%;
   overflow: hidden;
   backface-visibility: hidden;
-  position: absolute;
   border-radius: 15px;
+
+  position: absolute;
 }
 
 .front {
   z-index: 0;
+}
+.front img {
   filter: brightness(0.6);
 }
 .back {
   transform: rotateY(180deg);
-  background: yellow;
+  background: rgb(32, 83, 140);
+}
+
+.front .title {
+  position: absolute;
+  top: 220px;
+  width: 100%;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.4);
+}
+.title p {
+  font-size: 1.5em;
+  color: white;
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  right: 40px;
+  top: 20px;
+  font-size: 25px;
+}
+
+.card_grid {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0em 1em;
+  grid-template-areas: "card_img title" "card_img tech" "card_img description" "chart duties" "chart links";
+}
+.card_img {
+  background-color: lime;
+  grid-area: card_img;
+}
+
+.card_chart {
+  background-color: lightblue;
+  grid-area: chart;
+}
+
+.card_title {
+  background-color: yellow;
+  grid-area: title;
+  height: 100px;
+}
+
+.card_description {
+  background-color: red;
+  grid-area: description;
+}
+.card_links {
+  background-color: brown;
+  grid-area: links;
+}
+
+.card_duties {
+  background-color: white;
+  grid-area: duties;
+}
+
+.card_tech_stack {
+  background-color: green;
+  grid-area: tech;
 }

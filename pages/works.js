@@ -4,7 +4,7 @@ import useWindowSize from "../components/useWindowSize/useWindowSize";
 import w from "../styles/works.module.css";
 import pic from "../assets/chair.png";
 import i1 from "../assets/sail.jpg";
-import i1Front from "../assets/sail_front.jpg";
+import i1Front from "../assets/laptop-sail.png";
 
 const cards = [1, 2, 3, 4, 5, 6];
 const cardBacks = [
@@ -12,6 +12,35 @@ const cardBacks = [
     img: i1,
     title: "Sicheres Arbeiten im Labor",
     imgFront: i1Front,
+    description:
+      "Umsetzung eines Flash-basierten Lernprogramm mit modernen Technologien",
+    links: [
+      "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapa/uebersicht_a.htm",
+      "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapa/uebersicht_b.htm",
+      "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapa/uebersicht_c.htm",
+    ],
+    duties: [
+      "Erstellung eines Layouts mit Hilfe von Design-Skizzen in Photoshop/ Adobe XD.",
+      "Implementierung der Programmarchitektur (mit weit entfernter Betreuung)",
+      "Erstellung funktionale Anforderungen des Projektes",
+      "Querverweise zwischen drei Teilen des Programms",
+      "Erstellung einer Suche",
+      "Bearbeitungsstand der Aufgaben und globale Zustand interaktiven Elemente",
+    ],
+    tech_stack: [
+      "JS",
+      "HTML",
+      "CSS",
+      "SASS",
+      "jQuery",
+      "jQuery UI",
+      "Local Storage",
+    ],
+    dauer: {
+      summ: [6, "Monate"],
+      from: [3, 18],
+      till: [9, 18],
+    },
   },
 ];
 
@@ -51,9 +80,8 @@ const works = () => {
         [`card${index}`]: {
           clipPath: `circle(100% at 50% 13%)`,
           transition: {
-            type: "spring",
-            stiffness: 20,
-            restDelta: 2,
+            duration: 0.8,
+            type: "tween",
           },
         },
       };
@@ -65,17 +93,13 @@ const works = () => {
           rotateY: 180,
           zIndex: 10,
           transition: {
-            type: "spring",
-            damping: 5,
-            mass: 0.5,
-            stiffness: 100,
+            type: "tween",
           },
         },
       };
     });
   };
   const handleHoverEnd = (index) => {
-    handleCloseModal(index);
     setRotateFront((oldState) => {
       return {
         ...oldState,
@@ -93,10 +117,6 @@ const works = () => {
         },
       };
     });
-
-    setActiveCard(0);
-  };
-  const handleCloseModal = (index) => {
     setScaleFront((oldState) => {
       return {
         ...oldState,
@@ -113,7 +133,43 @@ const works = () => {
       };
     });
   };
-  const [activeCard, setActiveCard] = useState();
+  const handleCloseModal = (index) => {
+    console.log(index);
+    setRotateFront((oldState) => {
+      return {
+        ...oldState,
+
+        [`card${index}`]: {
+          rotateY: 0,
+          zIndex: 0,
+          transition: {
+            //delay: 0.5,
+            type: "spring",
+            damping: 5,
+            mass: 0.5,
+            stiffness: 100,
+          },
+        },
+      };
+    });
+    setScaleFront((oldState) => {
+      return {
+        ...oldState,
+        [`card${index}`]: {
+          clipPath: `circle(0% at 50% 0)`,
+          width: "400px",
+          height: "300px",
+          right: 0,
+          top: 0,
+          transition: {
+            duration: 0.5,
+          },
+        },
+      };
+    });
+    setActiveCard(0);
+  };
+  const [activeCard, setActiveCard] = useState(0);
   const handleClick = (event, index) => {
     setActiveCard(index);
 
@@ -137,11 +193,8 @@ const works = () => {
           width: `${parseInt(gRef.width - 60)}px`,
           right: -distanceToFirstCardX, // sides are reversed
           top: distanceToFirstCardY,
-          pointerEvents: "none",
           transition: {
-            type: "spring",
-            stiffness: 400,
-            damping: 40,
+            ease: "circOut",
           },
         },
       };
@@ -159,12 +212,12 @@ const works = () => {
       {cards.map((c, i) => (
         <motion.div
           key={c}
-          onHoverStart={() => handleHoverStart(c)}
-          onHoverEnd={() => handleHoverEnd(c)}
-          onClick={(e) => handleClick(e, c)}
+          onHoverStart={() => activeCard <= 0 && handleHoverStart(c)}
+          onHoverEnd={() => activeCard <= 0 && handleHoverEnd(c)}
+          onClick={(e) => activeCard <= 0 && handleClick(e, c)}
           className={w.grid_item}
           ref={c == 1 ? firstCard : null}
-          style={{ perspective: `${activeCard == c ? "1001px" : "1000"}` }}
+          style={{ perspective: `${activeCard == c ? "none" : "1000px"}` }}
         >
           <motion.div
             animate={rotateFront[`card${c}`]}
@@ -172,12 +225,45 @@ const works = () => {
           >
             <div className={w.front}>
               <img src={cardBacks[c - 1] && cardBacks[c - 1].img} alt="" />
-              <div>
+              <div className={w.title}>
                 <p>{cardBacks[c - 1] && cardBacks[c - 1].title}</p>
               </div>
             </div>
             <motion.div animate={scaleFront[`card${c}`]} className={w.back}>
-              <img src={cardBacks[c - 1] && cardBacks[c - 1].imgFront} />
+              <div className={w.card_grid}>
+                <div className={w.card_img}>
+                  <img src={cardBacks[c - 1] && cardBacks[c - 1].imgFront} />
+                </div>
+                <div className={w.card_chart}>
+                  {cardBacks[c - 1] && cardBacks[c - 1].dauer.summ[0]}
+                </div>
+                <div className={w.card_title}>
+                  {cardBacks[c - 1] && cardBacks[c - 1].title}
+                </div>
+                <div className={w.card_tech_stack}>
+                  {cardBacks[c - 1] && cardBacks[c - 1].tech_stack}
+                </div>
+                <div className={w.card_description}>
+                  {cardBacks[c - 1] && cardBacks[c - 1].description}
+                </div>
+                <div className={w.card_duties}>
+                  {cardBacks[c - 1] && cardBacks[c - 1].duties}
+                </div>
+                <div className={w.card_links}>
+                  {cardBacks[c - 1] && cardBacks[c - 1].links}
+                </div>
+                {
+                  <span
+                    className={w.close}
+                    onClick={() => handleCloseModal(c)}
+                    style={{
+                      visibility: `${activeCard !== c ? "hidden" : "visible"}`,
+                    }}
+                  >
+                    &#10006;
+                  </span>
+                }
+              </div>
             </motion.div>
           </motion.div>
         </motion.div>
