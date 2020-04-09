@@ -232,8 +232,8 @@ const works = () => {
         ...oldState,
         [`card${index}`]: {
           clipPath: `circle(0% at 50% 0)`,
-          width: "400px",
-          height: "300px",
+          maxWidth: "400px",
+          maxHeight: "300px",
           right: 0,
           top: 0,
           transition: {
