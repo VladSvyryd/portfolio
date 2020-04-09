@@ -4,6 +4,7 @@ const meta = () => {
   return (
     <Head>
       <title>{"Vlad Sv | Frontend Developer | React Enthusiast"}</title>
+
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       {"<!-- Primary Meta Tags -->"}
