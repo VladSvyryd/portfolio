@@ -3,14 +3,25 @@ import { motion, useCycle } from "framer-motion";
 import useWindowSize from "../components/useWindowSize/useWindowSize";
 import w from "../styles/works.module.css";
 import pic from "../assets/chair.png";
-import i1 from "../assets/sail.jpg";
-import i1Front from "../assets/laptop-sail.png";
+import i1 from "../assets/sail_thumb.jpg";
+import i2 from "../assets/saib_thumb.jpg";
+import i3 from "../assets/fallbeispiel_thumb.jpg";
+import i4 from "../assets/coinTracker_thumb.jpg";
+import i5 from "../assets/applepie_thumb.jpg";
+import i6 from "../assets/virtuelles_labor_thumb.jpg";
+import i7 from "../assets/electron_thumb.jpg";
+import i8 from "../assets/wanteat.jpg";
+import i1Front from "../assets/sail.png";
+import i2Front from "../assets/saib.png";
+import i3Front from "../assets/fallbeispiel.png";
+import i4Front from "../assets/coinTracker.png";
+import i5Front from "../assets/applepie.png";
 
-const cards = [1, 2, 3, 4, 5, 6];
+const cards = [1, 2, 3, 4, 5, 6, 7, 8];
 const cardBacks = [
   {
     img: i1,
-    title: "Sicheres Arbeiten im Labor",
+    title: "Sicheres Arbeiten im Labor: Fachinformationen",
     imgFront: i1Front,
     description:
       "Umsetzung eines Flash-basierten Lernprogramm mit modernen Technologien",
@@ -36,6 +47,105 @@ const cardBacks = [
       "jQuery UI",
       "Local Storage",
     ],
+    dauer: {
+      summ: [6, "Monate"],
+      from: [3, 18],
+      till: [9, 18],
+    },
+  },
+  {
+    img: i2,
+    title: "Sicheres Befahren von Behältern",
+    imgFront: i2Front,
+    description: "",
+    links: [],
+    duties: [],
+    tech_stack: [],
+    dauer: {
+      summ: [6, "Monate"],
+      from: [3, 18],
+      till: [9, 18],
+    },
+  },
+  {
+    img: i3,
+    title: "Fallbeispiel 1,2,3",
+    imgFront: i3Front,
+    description: "",
+    links: [],
+    duties: [],
+    tech_stack: [],
+    dauer: {
+      summ: [6, "Monate"],
+      from: [3, 18],
+      till: [9, 18],
+    },
+  },
+  {
+    img: i4,
+    title: "Coins Tracker",
+    imgFront: i4Front,
+    description: "",
+    links: [],
+    duties: [],
+    tech_stack: [],
+    dauer: {
+      summ: [6, "Monate"],
+      from: [3, 18],
+      till: [9, 18],
+    },
+  },
+  {
+    img: i5,
+    title: "applepie",
+    imgFront: i5Front,
+    description: "",
+    links: [],
+    duties: [],
+    tech_stack: [],
+    dauer: {
+      summ: [6, "Monate"],
+      from: [3, 18],
+      till: [9, 18],
+    },
+  },
+  {
+    img: i6,
+    title: "Virtuelles Labor",
+    imgFront: i1Front,
+    description: "",
+    links: [],
+    duties: [],
+    tech_stack: [],
+    dauer: {
+      summ: [6, "Monate"],
+      from: [3, 18],
+      till: [9, 18],
+    },
+  },
+
+  {
+    img: i7,
+    title: "Sicheres Arbeiten im Labor",
+    imgFront: i1Front,
+    description: "",
+    links: [],
+    duties: [],
+    tech_stack: [],
+    dauer: {
+      summ: [6, "Monate"],
+      from: [3, 18],
+      till: [9, 18],
+    },
+  },
+  {
+    img: i8,
+    title: "Want Eat",
+    imgFront: i1Front,
+    description: "",
+    links: [],
+    duties: [],
+    tech_stack: [],
     dauer: {
       summ: [6, "Monate"],
       from: [3, 18],
