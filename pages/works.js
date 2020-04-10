@@ -16,6 +16,9 @@ import i2Front from "../assets/saib.png";
 import i3Front from "../assets/fallbeispiel.png";
 import i4Front from "../assets/coinTracker.png";
 import i5Front from "../assets/applepie.png";
+import i6Front from "../assets/virtuelles_labor.png";
+import i7Front from "../assets/saib_electron.png";
+import i8Front from "../assets/wanteat_back.png";
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8];
 const cardBacks = [
@@ -112,7 +115,7 @@ const cardBacks = [
   {
     img: i6,
     title: "Virtuelles Labor",
-    imgFront: i1Front,
+    imgFront: i6Front,
     description: "",
     links: [],
     duties: [],
@@ -127,7 +130,7 @@ const cardBacks = [
   {
     img: i7,
     title: "Sicheres Arbeiten im Labor",
-    imgFront: i1Front,
+    imgFront: i7Front,
     description: "",
     links: [],
     duties: [],
@@ -141,7 +144,7 @@ const cardBacks = [
   {
     img: i8,
     title: "Want Eat",
-    imgFront: i1Front,
+    imgFront: i8Front,
     description: "",
     links: [],
     duties: [],
@@ -245,6 +248,8 @@ const works = () => {
   };
   const handleCloseModal = (index) => {
     console.log(index);
+    toggleOpen();
+
     setRotateFront((oldState) => {
       return {
         ...oldState,
@@ -282,7 +287,7 @@ const works = () => {
   const [activeCard, setActiveCard] = useState(0);
   const handleClick = (event, index) => {
     setActiveCard(index);
-
+    toggleOpen();
     var elem = event.target;
     var box = elem.getBoundingClientRect();
     const fCard = firstCard.current.getBoundingClientRect();
@@ -310,6 +315,27 @@ const works = () => {
       };
     });
   };
+  const card_container = {
+    closed: { opacity: 1 },
+    open: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.05,
+      },
+    },
+  };
+  const item = {
+    closed: { x: "+30%", opacity: 0 },
+    open: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        ease: [0.65, 0.09, 0.46, 1.26],
+      },
+    },
+  };
+  const [isOpen, toggleOpen] = useCycle(false, true);
 
   return (
     <motion.div
@@ -340,28 +366,34 @@ const works = () => {
               </div>
             </div>
             <motion.div animate={scaleFront[`card${c}`]} className={w.back}>
-              <div className={w.card_grid}>
-                <div className={w.card_img}>
+              <motion.div
+                className={w.card_grid}
+                variants={card_container}
+                initial="closed"
+                animate="open"
+                animate={isOpen ? "open" : "closed"}
+              >
+                <motion.div className={w.card_img}>
                   <img src={cardBacks[c - 1] && cardBacks[c - 1].imgFront} />
-                </div>
-                <div className={w.card_chart}>
+                </motion.div>
+                <motion.div className={w.card_chart}>
                   {cardBacks[c - 1] && cardBacks[c - 1].dauer.summ[0]}
-                </div>
-                <div className={w.card_title}>
+                </motion.div>
+                <motion.div className={w.card_title} variants={item}>
                   {cardBacks[c - 1] && cardBacks[c - 1].title}
-                </div>
-                <div className={w.card_tech_stack}>
+                </motion.div>
+                <motion.div className={w.card_tech_stack} variants={item}>
                   {cardBacks[c - 1] && cardBacks[c - 1].tech_stack}
-                </div>
-                <div className={w.card_description}>
+                </motion.div>
+                <motion.div className={w.card_description} variants={item}>
                   {cardBacks[c - 1] && cardBacks[c - 1].description}
-                </div>
-                <div className={w.card_duties}>
+                </motion.div>
+                <motion.div className={w.card_duties} variants={item}>
                   {cardBacks[c - 1] && cardBacks[c - 1].duties}
-                </div>
-                <div className={w.card_links}>
+                </motion.div>
+                <motion.div className={w.card_links} variants={item}>
                   {cardBacks[c - 1] && cardBacks[c - 1].links}
-                </div>
+                </motion.div>
                 {
                   <span
                     className={w.close}
@@ -373,7 +405,7 @@ const works = () => {
                     &#10006;
                   </span>
                 }
-              </div>
+              </motion.div>
             </motion.div>
           </motion.div>
         </motion.div>

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const anim_init_Desktop = {
   opacity: 0,
-  translateX: "+100%"
+  translateX: "+100%",
 };
 const anim_finish_Desktop = {
   opacity: 1,
@@ -14,12 +14,12 @@ const anim_finish_Desktop = {
   translateX: "0%",
   transition: {
     duration: 0.5,
-    type: "spring"
-  }
+    type: "spring",
+  },
 };
 
 const textArray =
-  'import React { useState } from "react"; ^1000\n <br> <br> const Portfolio=()=> { ^1000\n <br> <br> const [success, setS] = useState(true); ^500\n <br> <br> const moto=["<b>Just</b>","<b>Do</b>","<b>It</b>","<b>!!!</b>"] <br> <br> ^300\n return ( <br> <br> moto.map(word=>(<i>word</i>) <br> <br> ); <br> <br> ^200\n }';
+  'import React { useState } from "react"; ^1000\n <br> <br> const Portfolio=()=> { ^1000\n <br> <br> const [success, setS] = useState(true); ^500\n <br> <br> const motto=["<b>Just</b>","<b>Do</b>","<b>It</b>","<b>!!!</b>"] <br> <br> ^300\n return ( <br> <br> motto.map(word=>(<i>word</i>) <br> <br> ); <br> <br> ^200\n }';
 function HomePage() {
   return (
     <>
@@ -45,7 +45,7 @@ function HomePage() {
             >
               <Link
                 href={{
-                  pathname: "/contact"
+                  pathname: "/contact",
                 }}
                 as={"/contact"}
               >
@@ -53,7 +53,7 @@ function HomePage() {
                   style={{
                     color: "#6c63ff",
                     fontWeight: "bold",
-                    width: "100%"
+                    width: "100%",
                   }}
                 >
                   Contact
