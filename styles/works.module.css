@@ -67,7 +67,7 @@
 }
 .back {
   transform: rotateY(180deg);
-  background: rgb(32, 83, 140);
+  background: rgb(58, 56, 96);
 }
 
 .front .title {
@@ -94,42 +94,78 @@
 
 .card_grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 40% 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 0em 1em;
-  grid-template-areas: "card_img title" "card_img tech" "card_img description" "chart duties" "chart links";
+  grid-template-areas: "card_img card_info" "card_img card_info" "card_img card_info" "chart card_info" "chart card_info";
+  max-width: 1310px;
+}
+.card_info {
+  grid-area: card_info;
+  padding: 35px 15px;
 }
 .card_img {
-  background-color: lime;
-  grid-area: card_img;
+  display: flex;
+}
+.card_img img {
+  width: 100%;
 }
 
 .card_chart {
   background-color: lightblue;
-  grid-area: chart;
+  display: flex;
+  width: 90%;
+  margin: auto;
 }
 
 .card_title {
-  background-color: yellow;
-  grid-area: title;
-  height: 100px;
+  display: flex;
+}
+.card_title p {
+  line-height: 1;
+  margin: 0;
+  font-size: 1.7rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
 }
 
-.card_description {
-  background-color: red;
-  grid-area: description;
+.card_info {
+  display: flex;
+  flex-direction: column;
 }
-.card_links {
-  background-color: brown;
-  grid-area: links;
+.card_chip {
+  font-size: 0.7em;
+  background: #272641;
+  border-radius: 15px;
+  box-shadow: -2px -2px 3px rgba(255, 255, 255, 0.05),
+    3px 3px 3px rgba(0, 0, 0, 0.2);
+  color: white;
+  cursor: pointer;
+  padding: 3px 14px;
+  margin: 0 5px;
 }
-
+.card_chip:hover {
+  color: #272641;
+  background: #e6e6e6;
+}
 .card_duties {
-  background-color: white;
-  grid-area: duties;
+  display: flex;
+  flex-direction: column;
 }
-
+.card_duties .card_chip {
+  margin: 5px 20px;
+  font-size: 0.9em;
+}
 .card_tech_stack {
-  background-color: green;
-  grid-area: tech;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 1em 0;
+}
+.card_description,
+.card_links,
+.card_duties,
+.card_tech_stack,
+.card_title {
+  color: #e6e6e6;
 }

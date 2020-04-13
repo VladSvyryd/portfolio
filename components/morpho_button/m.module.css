@@ -4,8 +4,8 @@
   height: 50px;
   background: #272641;
   border-radius: 15px;
-  box-shadow: -4px -4px 6px rgba(255, 255, 255, 0.08),
-    6px 6px 6px rgba(0, 0, 0, 0.4);
+  box-shadow: -2px -2px 3px rgba(255, 255, 255, 0.05),
+    3px 3px 3px rgba(0, 0, 0, 0.2);
   color: white;
   margin: 10px;
   align-items: center;

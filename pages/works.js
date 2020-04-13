@@ -1,161 +1,12 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { motion, useCycle } from "framer-motion";
-import useWindowSize from "../components/useWindowSize/useWindowSize";
+import HistogramChart from "../components/histogram/histogramChart";
 import w from "../styles/works.module.css";
-import pic from "../assets/chair.png";
-import i1 from "../assets/sail_thumb.jpg";
-import i2 from "../assets/saib_thumb.jpg";
-import i3 from "../assets/fallbeispiel_thumb.jpg";
-import i4 from "../assets/coinTracker_thumb.jpg";
-import i5 from "../assets/applepie_thumb.jpg";
-import i6 from "../assets/virtuelles_labor_thumb.jpg";
-import i7 from "../assets/electron_thumb.jpg";
-import i8 from "../assets/wanteat.jpg";
-import i1Front from "../assets/sail.png";
-import i2Front from "../assets/saib.png";
-import i3Front from "../assets/fallbeispiel.png";
-import i4Front from "../assets/coinTracker.png";
-import i5Front from "../assets/applepie.png";
-import i6Front from "../assets/virtuelles_labor.png";
-import i7Front from "../assets/saib_electron.png";
-import i8Front from "../assets/wanteat_back.png";
+import Morpho_button from "../components/morpho_button/morpho_button";
+import cardsData from "../data/data";
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8];
-const cardBacks = [
-  {
-    img: i1,
-    title: "Sicheres Arbeiten im Labor: Fachinformationen",
-    imgFront: i1Front,
-    description:
-      "Umsetzung eines Flash-basierten Lernprogramm mit modernen Technologien",
-    links: [
-      "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapa/uebersicht_a.htm",
-      "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapa/uebersicht_b.htm",
-      "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapa/uebersicht_c.htm",
-    ],
-    duties: [
-      "Erstellung eines Layouts mit Hilfe von Design-Skizzen in Photoshop/ Adobe XD.",
-      "Implementierung der Programmarchitektur (mit weit entfernter Betreuung)",
-      "Erstellung funktionale Anforderungen des Projektes",
-      "Querverweise zwischen drei Teilen des Programms",
-      "Erstellung einer Suche",
-      "Bearbeitungsstand der Aufgaben und globale Zustand interaktiven Elemente",
-    ],
-    tech_stack: [
-      "JS",
-      "HTML",
-      "CSS",
-      "SASS",
-      "jQuery",
-      "jQuery UI",
-      "Local Storage",
-    ],
-    dauer: {
-      summ: [6, "Monate"],
-      from: [3, 18],
-      till: [9, 18],
-    },
-  },
-  {
-    img: i2,
-    title: "Sicheres Befahren von Behältern",
-    imgFront: i2Front,
-    description: "",
-    links: [],
-    duties: [],
-    tech_stack: [],
-    dauer: {
-      summ: [6, "Monate"],
-      from: [3, 18],
-      till: [9, 18],
-    },
-  },
-  {
-    img: i3,
-    title: "Fallbeispiel 1,2,3",
-    imgFront: i3Front,
-    description: "",
-    links: [],
-    duties: [],
-    tech_stack: [],
-    dauer: {
-      summ: [6, "Monate"],
-      from: [3, 18],
-      till: [9, 18],
-    },
-  },
-  {
-    img: i4,
-    title: "Coins Tracker",
-    imgFront: i4Front,
-    description: "",
-    links: [],
-    duties: [],
-    tech_stack: [],
-    dauer: {
-      summ: [6, "Monate"],
-      from: [3, 18],
-      till: [9, 18],
-    },
-  },
-  {
-    img: i5,
-    title: "applepie",
-    imgFront: i5Front,
-    description: "",
-    links: [],
-    duties: [],
-    tech_stack: [],
-    dauer: {
-      summ: [6, "Monate"],
-      from: [3, 18],
-      till: [9, 18],
-    },
-  },
-  {
-    img: i6,
-    title: "Virtuelles Labor",
-    imgFront: i6Front,
-    description: "",
-    links: [],
-    duties: [],
-    tech_stack: [],
-    dauer: {
-      summ: [6, "Monate"],
-      from: [3, 18],
-      till: [9, 18],
-    },
-  },
-
-  {
-    img: i7,
-    title: "Sicheres Arbeiten im Labor",
-    imgFront: i7Front,
-    description: "",
-    links: [],
-    duties: [],
-    tech_stack: [],
-    dauer: {
-      summ: [6, "Monate"],
-      from: [3, 18],
-      till: [9, 18],
-    },
-  },
-  {
-    img: i8,
-    title: "Want Eat",
-    imgFront: i8Front,
-    description: "",
-    links: [],
-    duties: [],
-    tech_stack: [],
-    dauer: {
-      summ: [6, "Monate"],
-      from: [3, 18],
-      till: [9, 18],
-    },
-  },
-];
+const cardBacks = cardsData;
 
 const works = () => {
   const gridRef = useRef(null);
@@ -247,7 +98,6 @@ const works = () => {
     });
   };
   const handleCloseModal = (index) => {
-    console.log(index);
     toggleOpen();
 
     setRotateFront((oldState) => {
@@ -294,11 +144,8 @@ const works = () => {
     const gRef = gridRef.current.getBoundingClientRect();
     const diffX = fCard.x - gRef.x / 2;
     const diffY = fCard.y / 2.5 - gRef.y;
-    console.log({ fCard }, elem);
     const distanceToFirstCardX = box.x - diffX;
     const distanceToFirstCardY = diffY - box.y;
-    console.log({ distanceToFirstCardX, distanceToFirstCardY, gRef });
-    console.log(elem);
     setScaleFront((oldState) => {
       return {
         ...oldState,
@@ -321,7 +168,7 @@ const works = () => {
       opacity: 1,
       transition: {
         when: "beforeChildren",
-        staggerChildren: 0.05,
+        staggerChildren: 0.052,
       },
     },
   };
@@ -331,9 +178,22 @@ const works = () => {
       x: 0,
       opacity: 1,
       transition: {
+        duration: 0.2,
         ease: [0.65, 0.09, 0.46, 1.26],
+        when: "beforeChildren",
+        staggerChildren: 0.2,
       },
     },
+  };
+  const img = {
+    closed: (w = 300) => ({ width: "400px" }),
+    open: (w = 300) => ({
+      width: "auto",
+      margin: "auto",
+      transition: {
+        ease: [0.65, 0.09, 0.46, 1.26],
+      },
+    }),
   };
   const [isOpen, toggleOpen] = useCycle(false, true);
 
@@ -351,6 +211,9 @@ const works = () => {
           onHoverStart={() => activeCard <= 0 && handleHoverStart(c)}
           onHoverEnd={() => activeCard <= 0 && handleHoverEnd(c)}
           onClick={(e) => activeCard <= 0 && handleClick(e, c)}
+          onTouchEnd={(e) =>
+            activeCard <= 0 && handleHoverStart(c) && handleClick(e, c)
+          }
           className={w.grid_item}
           ref={c == 1 ? firstCard : null}
           style={{ perspective: `${activeCard == c ? "none" : "1000px"}` }}
@@ -361,7 +224,7 @@ const works = () => {
           >
             <div className={w.front}>
               <img src={cardBacks[c - 1] && cardBacks[c - 1].img} alt="" />
-              <div className={w.title}>
+              <div className={w.title + " " + "test"}>
                 <p>{cardBacks[c - 1] && cardBacks[c - 1].title}</p>
               </div>
             </div>
@@ -374,26 +237,51 @@ const works = () => {
                 animate={isOpen ? "open" : "closed"}
               >
                 <motion.div className={w.card_img}>
-                  <img src={cardBacks[c - 1] && cardBacks[c - 1].imgFront} />
+                  <motion.img
+                    variants={img}
+                    src={cardBacks[c - 1] && cardBacks[c - 1].imgFront}
+                  />
                 </motion.div>
                 <motion.div className={w.card_chart}>
-                  {cardBacks[c - 1] && cardBacks[c - 1].dauer.summ[0]}
+                  <HistogramChart
+                    date={cardBacks[c - 1].timestamp}
+                    id={`canvas${c}`}
+                  />
                 </motion.div>
-                <motion.div className={w.card_title} variants={item}>
-                  {cardBacks[c - 1] && cardBacks[c - 1].title}
-                </motion.div>
-                <motion.div className={w.card_tech_stack} variants={item}>
-                  {cardBacks[c - 1] && cardBacks[c - 1].tech_stack}
-                </motion.div>
-                <motion.div className={w.card_description} variants={item}>
-                  {cardBacks[c - 1] && cardBacks[c - 1].description}
-                </motion.div>
-                <motion.div className={w.card_duties} variants={item}>
-                  {cardBacks[c - 1] && cardBacks[c - 1].duties}
-                </motion.div>
-                <motion.div className={w.card_links} variants={item}>
-                  {cardBacks[c - 1] && cardBacks[c - 1].links}
-                </motion.div>
+                <div className={w.card_info}>
+                  <motion.div className={w.card_title} variants={item}>
+                    <p>{cardBacks[c - 1] && cardBacks[c - 1].title}</p>
+                  </motion.div>
+                  <motion.div className={w.card_tech_stack} variants={item}>
+                    {cardBacks[c - 1] &&
+                      cardBacks[c - 1].tech_stack.map((t, i) => (
+                        <span key={t} className={w.card_chip}>
+                          {t}
+                        </span>
+                      ))}
+                  </motion.div>
+                  <motion.div className={w.card_description} variants={item}>
+                    <p> {cardBacks[c - 1] && cardBacks[c - 1].description}</p>
+                  </motion.div>
+                  <motion.div className={w.card_duties}>
+                    <p>
+                      <b>Duties:</b>
+                    </p>
+                    {cardBacks[c - 1] &&
+                      cardBacks[c - 1].duties.map((d, i) => (
+                        <motion.div
+                          key={`duty${c}-${i}`}
+                          className={w.card_chip}
+                          variants={item}
+                        >
+                          {d}
+                        </motion.div>
+                      ))}
+                  </motion.div>
+                  <motion.div className={w.card_links} variants={item}>
+                    <p> {cardBacks[c - 1] && cardBacks[c - 1].links}</p>
+                  </motion.div>
+                </div>
                 {
                   <span
                     className={w.close}
