@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import { useFrame } from "react-three-fiber";
 
 function MyObject(props) {
   // This reference will give us direct access to the mesh
