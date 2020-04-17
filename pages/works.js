@@ -138,21 +138,23 @@ const works = () => {
   const handleClick = (event, index) => {
     setActiveCard(index);
     toggleOpen();
-    var elem = event.target;
+    var elem = event.currentTarget;
     var box = elem.getBoundingClientRect();
     const fCard = firstCard.current.getBoundingClientRect();
     const gRef = gridRef.current.getBoundingClientRect();
-    const diffX = fCard.x - gRef.x / 2;
-    const diffY = fCard.y / 2.5 - gRef.y;
-    const distanceToFirstCardX = box.x - diffX;
-    const distanceToFirstCardY = diffY - box.y;
+    console.log(event.currentTarget);
+    // const diffX = fCard.x - gRef.x / 2;
+    // const diffY = fCard.y / 2.5 - gRef.y;
+    const distanceToFirstCardX = box.x - gRef.x;
+    const distanceToFirstCardY = gRef.y - box.y + 30;
+    console.log({ distanceToFirstCardX });
     setScaleFront((oldState) => {
       return {
         ...oldState,
         [`card${index}`]: {
           // clipPath: `circle(100% at 50% 0)`,
-          height: `${parseInt(gRef.height - fCard.y)}px`,
-          width: `${parseInt(gRef.width - 60)}px`,
+          height: `${parseInt(gRef.height - gRef.y) - 60}px`,
+          width: `${parseInt(gRef.width - 30)}px`,
           right: -distanceToFirstCardX, // sides are reversed
           top: distanceToFirstCardY,
           transition: {
@@ -181,15 +183,14 @@ const works = () => {
         duration: 0.2,
         ease: [0.65, 0.09, 0.46, 1.26],
         when: "beforeChildren",
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   };
   const img = {
     closed: (w = 300) => ({ width: "400px" }),
     open: (w = 300) => ({
-      width: "auto",
-      margin: "auto",
+      width: "100%",
       transition: {
         ease: [0.65, 0.09, 0.46, 1.26],
       },
@@ -255,15 +256,20 @@ const works = () => {
                   <motion.div className={w.card_tech_stack} variants={item}>
                     {cardBacks[c - 1] &&
                       cardBacks[c - 1].tech_stack.map((t, i) => (
-                        <span key={t} className={w.card_chip}>
-                          {t}
-                        </span>
+                        <a
+                          key={`${t}-${i}`}
+                          href={t.link}
+                          target="_blank"
+                          className={w.card_chip}
+                        >
+                          {t.name}
+                        </a>
                       ))}
                   </motion.div>
                   <motion.div className={w.card_description} variants={item}>
                     <p> {cardBacks[c - 1] && cardBacks[c - 1].description}</p>
                   </motion.div>
-                  <motion.div className={w.card_duties}>
+                  <motion.div className={w.card_duties} variants={item}>
                     <p>
                       <b>Duties:</b>
                     </p>
@@ -279,7 +285,21 @@ const works = () => {
                       ))}
                   </motion.div>
                   <motion.div className={w.card_links} variants={item}>
-                    <p> {cardBacks[c - 1] && cardBacks[c - 1].links}</p>
+                    <p>
+                      <b>Links:</b>
+                    </p>
+                    {cardBacks[c - 1] &&
+                      cardBacks[c - 1].links.map((l, i) => (
+                        <motion.a
+                          href={l.link}
+                          key={i}
+                          target="_blank"
+                          className={w.card_chip}
+                          variants={item}
+                        >
+                          {l.name}
+                        </motion.a>
+                      ))}
                   </motion.div>
                 </div>
                 {

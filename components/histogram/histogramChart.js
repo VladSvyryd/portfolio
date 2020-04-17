@@ -21,6 +21,7 @@ const dataForChart = {
       label: "Working on Project",
       fill: "start",
       lineTension: 0.1,
+      borderWidth: 1,
       backgroundColor: "rgba(75,192,192,0.4)",
       borderColor: "rgba(75,192,192,1)",
       borderCapStyle: "butt",
@@ -29,11 +30,11 @@ const dataForChart = {
       borderJoinStyle: "miter",
       pointBorderColor: "rgba(75,192,192,1)",
       pointBackgroundColor: "#fff",
-      pointBorderWidth: 1,
+      pointBorderWidth: 0.2,
       pointHoverRadius: 5,
       pointHoverBackgroundColor: "rgba(75,192,192,1)",
-      pointHoverBorderColor: "rgba(220,220,220,1)",
-      pointHoverBorderWidth: 2,
+      pointHoverBorderColor: "white",
+      pointHoverBorderWidth: 0.1,
       pointRadius: 1,
       pointHitRadius: 10,
       data: [],
@@ -44,6 +45,11 @@ const dataForChart = {
 const options = {
   responsive: true,
   maintainAspectRatio: true,
+  legend: {
+    labels: {
+      fontColor: "#e6e6e6",
+    },
+  },
   animation: {
     easing: "easeInOutQuad",
     duration: 820,
@@ -53,6 +59,21 @@ const options = {
       {
         ticks: {
           display: false,
+        },
+        gridLines: {
+          display: false,
+          color: "#FFFFFF",
+        },
+      },
+    ],
+    xAxes: [
+      {
+        ticks: {
+          fontColor: "#e6e6e6",
+        },
+        gridLines: {
+          color: "#FFFFFF",
+          zeroLineColor: "#FFFFFF",
         },
       },
     ],
@@ -78,38 +99,20 @@ export default (props) => {
 
     return {
       label: `${sumUp}`,
-      fill: "start",
-      lineTension: 0.1,
-      backgroundColor: "rgba(2,0,36,1)",
-      borderColor: "rgba(75,192,192,1)",
-      borderCapStyle: "butt",
-      borderDash: [],
-      borderDashOffset: 0.0,
-      borderJoinStyle: "miter",
-      pointBorderColor: "rgba(75,192,192,1)",
-      pointBackgroundColor: "#fff",
-      pointBorderWidth: 1,
-      pointHoverRadius: 5,
-      pointHoverBackgroundColor: "rgba(75,192,192,1)",
-      pointHoverBorderColor: "rgba(220,220,220,1)",
-      pointHoverBorderWidth: 2,
-      pointRadius: 1,
-      pointHitRadius: 10,
+      ...dataForChart.datasets[0],
       data: arr,
-      steppedLine: true,
     };
   };
   useEffect(() => {
     const d = fillDatasetWithRealDate();
 
     // create gradient
-    console.log(document.querySelector(`#${props.id}`));
     const canvas = document.querySelector(`#${props.id}`);
     const ctx = canvas.getContext("2d");
-    canvas.style.backgroundColor = "rgb(32, 83, 140)";
+    canvas.style.backgroundColor = "rgb(58, 56, 96)";
     var gradient = ctx.createLinearGradient(0, 0, 0, 100);
-    gradient.addColorStop(0, "rgba(150,61,162,1)");
-    gradient.addColorStop(1, "rgba(2,0,36,1)");
+    gradient.addColorStop(1, "rgba(39,38,65,1)");
+    gradient.addColorStop(0, "rgba(58,56,96,1)");
     // const gradient = ctx.createLinearGradient(0, 0, 0, 450);
 
     // gradient.addColorStop(0, "rgba(255, 0,0, 0.5)");
@@ -122,7 +125,6 @@ export default (props) => {
       ...oldData,
       datasets: [d],
     }));
-    console.log(charData);
   }, []);
   return (
     <Line

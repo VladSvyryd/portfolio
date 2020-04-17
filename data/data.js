@@ -23,9 +23,21 @@ const cardsData = [
     description:
       "Umsetzung eines Flash-basierten Lernprogramm mit modernen Technologien",
     links: [
-      "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapa/uebersicht_a.htm",
-      "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapa/uebersicht_b.htm",
-      "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapa/uebersicht_c.htm",
+      {
+        name: "Übersicht Chapter I",
+        link:
+          "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapa/uebersicht_a.htm",
+      },
+      {
+        name: "Übersicht Chapter II",
+        link:
+          "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapa/uebersicht_b.htm",
+      },
+      {
+        name: "Übersicht Chapter III",
+        link:
+          "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapa/uebersicht_c.htm",
+      },
     ],
     duties: [
       "Erstellung eines Layouts mit Hilfe von Design-Skizzen in Photoshop/ Adobe XD.",
@@ -36,13 +48,19 @@ const cardsData = [
       "Bearbeitungsstand der Aufgaben und globale Zustand interaktiven Elemente",
     ],
     tech_stack: [
-      "JS",
-      "HTML",
-      "CSS",
-      "SASS",
-      "jQuery",
-      "jQuery UI",
-      "Local Storage",
+      { name: "JS", link: "https://en.wikipedia.org/wiki/JavaScript" },
+      { name: "HTML", link: "https://en.wikipedia.org/wiki/HTML" },
+      {
+        name: "CSS",
+        link: "https://en.wikipedia.org/wiki/Cascading_Style_Sheets",
+      },
+      { name: "SASS", link: "https://sass-lang.com/" },
+      { name: "jQuery", link: "https://jquery.com/" },
+      { name: "jQuery UI", link: "https://jqueryui.com/" },
+      {
+        name: "Local Storage",
+        link: "https://en.wikipedia.org/wiki/Web_storage",
+      },
     ],
     timestamp: {
       sum: [6, "Monate"],
