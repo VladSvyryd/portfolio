@@ -284,23 +284,25 @@ const works = () => {
                         </motion.div>
                       ))}
                   </motion.div>
-                  <motion.div className={w.card_links} variants={item}>
-                    <p>
-                      <b>Links:</b>
-                    </p>
-                    {cardBacks[c - 1] &&
-                      cardBacks[c - 1].links.map((l, i) => (
-                        <motion.a
-                          href={l.link}
-                          key={i}
-                          target="_blank"
-                          className={w.card_chip}
-                          variants={item}
-                        >
-                          {l.name}
-                        </motion.a>
-                      ))}
-                  </motion.div>
+                  {activeCard > 0 && (
+                    <motion.div className={w.card_links} variants={item}>
+                      <p>
+                        <b>Links:</b>
+                      </p>
+                      {cardBacks[c - 1] &&
+                        cardBacks[c - 1].links.map((l, i) => (
+                          <motion.a
+                            href={l.link}
+                            key={i}
+                            target="_blank"
+                            className={w.card_chip}
+                            variants={item}
+                          >
+                            {l.name}
+                          </motion.a>
+                        ))}
+                    </motion.div>
+                  )}
                 </div>
                 {
                   <span
