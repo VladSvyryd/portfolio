@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, useCycle } from "framer-motion";
 import HistogramChart from "../components/histogram/histogramChart";
 import w from "../styles/works.module.css";
@@ -140,21 +140,21 @@ const works = () => {
     toggleOpen();
     var elem = event.currentTarget;
     var box = elem.getBoundingClientRect();
-    const fCard = firstCard.current.getBoundingClientRect();
     const gRef = gridRef.current.getBoundingClientRect();
-    console.log(event.currentTarget);
-    // const diffX = fCard.x - gRef.x / 2;
-    // const diffY = fCard.y / 2.5 - gRef.y;
     const distanceToFirstCardX = box.x - gRef.x;
+
     const distanceToFirstCardY = gRef.y - box.y + 30;
-    console.log({ distanceToFirstCardX });
+
+    const modalHeight =
+      parseInt(gRef.height - gRef.y) - (wind.width >= 1024 ? 60 : 0);
+    const modalWidth = parseInt(gRef.width - 30);
     setScaleFront((oldState) => {
       return {
         ...oldState,
         [`card${index}`]: {
           // clipPath: `circle(100% at 50% 0)`,
-          height: `${parseInt(gRef.height - gRef.y) - 60}px`,
-          width: `${parseInt(gRef.width - 30)}px`,
+          height: `${modalHeight}px`,
+          width: `${modalWidth}px`,
           right: -distanceToFirstCardX, // sides are reversed
           top: distanceToFirstCardY,
           transition: {
@@ -197,7 +197,10 @@ const works = () => {
     }),
   };
   const [isOpen, toggleOpen] = useCycle(false, true);
-
+  const [wind, setWind] = useState();
+  useEffect(() => {
+    setWind({ width: window.innerWidth, height: window.innerHeight });
+  }, []);
   return (
     <motion.div
       exit={{ opacity: 0, scale: 0 }}
@@ -216,7 +219,6 @@ const works = () => {
             activeCard <= 0 && handleHoverStart(c) && handleClick(e, c)
           }
           className={w.grid_item}
-          ref={c == 1 ? firstCard : null}
           style={{ perspective: `${activeCard == c ? "none" : "1000px"}` }}
         >
           <motion.div
@@ -253,19 +255,21 @@ const works = () => {
                   <motion.div className={w.card_title} variants={item}>
                     <p>{cardBacks[c - 1] && cardBacks[c - 1].title}</p>
                   </motion.div>
-                  <motion.div className={w.card_tech_stack} variants={item}>
-                    {cardBacks[c - 1] &&
-                      cardBacks[c - 1].tech_stack.map((t, i) => (
-                        <a
-                          key={`${t}-${i}`}
-                          href={t.link}
-                          target="_blank"
-                          className={w.card_chip}
-                        >
-                          {t.name}
-                        </a>
-                      ))}
-                  </motion.div>
+                  {activeCard > 0 && (
+                    <motion.div className={w.card_tech_stack} variants={item}>
+                      {cardBacks[c - 1] &&
+                        cardBacks[c - 1].tech_stack.map((t, i) => (
+                          <a
+                            key={`${t}-${i}`}
+                            href={t.link}
+                            target="_blank"
+                            className={w.card_chip}
+                          >
+                            {t.name}
+                          </a>
+                        ))}
+                    </motion.div>
+                  )}
                   <motion.div className={w.card_description} variants={item}>
                     <p> {cardBacks[c - 1] && cardBacks[c - 1].description}</p>
                   </motion.div>

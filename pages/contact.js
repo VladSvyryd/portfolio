@@ -8,38 +8,38 @@ const Contact = ({ query }) => {
   const anim_init_Desktop = {
     opacity: 0,
     translateX: `${query.x}`,
-    translateY: `${query.y}`
+    translateY: `${query.y}`,
   };
   const anim_finish_Desktop = {
     opacity: 1,
     transition: {
       duration: 1.5,
       ease: "easeOut",
-      staggerChildren: 0.3
-    }
+      staggerChildren: 0.3,
+    },
   };
   const item = {
-    hidden: anim_param => ({
+    hidden: (anim_param) => ({
       translateX: `${anim_param}%`,
-      borderRadius: "25%"
+      borderRadius: "25%",
     }),
-    visible: anim_param => ({
+    visible: (anim_param) => ({
       translateX: "0%",
       borderRadius: "0%",
       transition: {
         delay: 0,
         ease: "easeOut",
-        duration: 0.5
-      }
-    })
+        duration: 0.5,
+      },
+    }),
   };
   const stagger = {
     animate: {
       transition: {
         delay: 1,
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
   useEffect(() => {
     console.log(window.innerWidth);
@@ -52,7 +52,7 @@ const Contact = ({ query }) => {
       exit={{ opacity: 0, scale: 0 }}
       initial="hidden"
       animate="visible"
-      style={{ display: "flex", width: "100%" }}
+      style={{ display: "flex", width: "100%", height: "100%" }}
     >
       <motion.div className="twoCol" variants={stagger}>
         <motion.div
@@ -73,7 +73,7 @@ const Contact = ({ query }) => {
           style={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center"
+            justifyContent: "center",
           }}
         >
           <Gmap mapStyles={mapStyles} isMarkerShown={true} />

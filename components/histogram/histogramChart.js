@@ -18,7 +18,6 @@ const dataForChart = {
   ],
   datasets: [
     {
-      label: "Working on Project",
       fill: "start",
       lineTension: 0.1,
       borderWidth: 1,
@@ -113,12 +112,6 @@ export default (props) => {
     var gradient = ctx.createLinearGradient(0, 0, 0, 100);
     gradient.addColorStop(1, "rgba(39,38,65,1)");
     gradient.addColorStop(0, "rgba(58,56,96,1)");
-    // const gradient = ctx.createLinearGradient(0, 0, 0, 450);
-
-    // gradient.addColorStop(0, "rgba(255, 0,0, 0.5)");
-    // gradient.addColorStop(0.5, "rgba(255, 0, 0, 0.25)");
-    // gradient.addColorStop(1, "rgba(255, 0, 0, 0)");
-
     d.backgroundColor = gradient;
 
     set((oldData) => ({

@@ -5,19 +5,13 @@
   overflow: hidden;
   border-radius: 30px;
 }
-@media (max-width: 1024px) {
-  .grid {
-    padding: 0px;
-    margin-left: 0px;
-  }
-}
 
 .grid {
   display: grid;
   width: 100%;
-  margin-left: 90px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
-  grid-template-rows: repeat(auto-fill, minmax(220px, 300px));
+  /* grid-template-rows: repeat(auto-fill, minmax(220px, 300px)); */
+  grid-auto-rows: minmax(210px, 300px);
   /* minmax(220px, 300px) minmax(220px, 300px) minmax(
       220px,
       300px
@@ -25,9 +19,24 @@
   grid-gap: 1em;
   justify-content: space-around;
   align-items: center;
-  padding: 30px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px 0px;
+  margin-bottom: 70px;
 }
-
+@media (min-width: 1024px) {
+  .grid {
+    padding: 30px;
+    margin-bottom: 0;
+    margin-left: 70px;
+  }
+}
+@media (min-width: 1382px) {
+  .grid {
+    overflow-y: hidden;
+    margin-left: 70px;
+  }
+}
 .grid_item {
   width: 100%;
   height: 100%;
@@ -94,12 +103,20 @@
 
 .card_grid {
   display: grid;
-  grid-template-columns: 40% 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   gap: 0em 1em;
-  grid-template-areas: "card_img card_info" "card_img card_info" "card_img card_info" "chart card_info" "chart card_info";
   max-width: 1310px;
   padding: 15px;
+  grid-template-areas: "card_img" "chart" "card_info";
+}
+
+@media (min-width: 1024px) {
+  .card_grid {
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "card_img card_info" "card_img card_info" "card_img card_info" "chart card_info" "chart card_info";
+  }
 }
 .card_info {
   grid-area: card_info;

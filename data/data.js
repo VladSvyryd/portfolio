@@ -31,12 +31,12 @@ const cardsData = [
       {
         name: "Übersicht Chapter II",
         link:
-          "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapa/uebersicht_b.htm",
+          "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapb/uebersicht_b.htm",
       },
       {
         name: "Übersicht Chapter III",
         link:
-          "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapa/uebersicht_c.htm",
+          "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapc/uebersicht_c.htm",
       },
     ],
     duties: [
