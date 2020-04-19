@@ -20,6 +20,7 @@ const cardsData = [
     img: i1,
     title: "Learning to Code",
     imgFront: i1Front,
+    imgFrontMaxWidth: 477,
     description:
       "Umsetzung eines Flash-basierten Lernprogramm mit modernen Technologien",
     links: [
@@ -72,6 +73,8 @@ const cardsData = [
     img: i2,
     title: "Sicheres Befahren von Behältern",
     imgFront: i2Front,
+    imgFrontMaxWidth: 477,
+
     description: "",
     links: [],
     duties: [],
@@ -86,6 +89,8 @@ const cardsData = [
     img: i3,
     title: "Fallbeispiel 1,2,3",
     imgFront: i3Front,
+    imgFrontMaxWidth: 477,
+
     description: "",
     links: [],
     duties: [],
@@ -100,6 +105,7 @@ const cardsData = [
     img: i4,
     title: "Coins Tracker",
     imgFront: i4Front,
+    imgFrontMaxWidth: 477,
     description: "",
     links: [],
     duties: [],
@@ -114,6 +120,8 @@ const cardsData = [
     img: i5,
     title: "applepie",
     imgFront: i5Front,
+    imgFrontMaxWidth: 477,
+
     description: "",
     links: [],
     duties: [],
@@ -128,6 +136,8 @@ const cardsData = [
     img: i6,
     title: "Virtuelles Labor",
     imgFront: i6Front,
+    imgFrontMaxWidth: 477,
+
     description: "",
     links: [],
     duties: [],
@@ -143,6 +153,7 @@ const cardsData = [
     img: i7,
     title: "Sicheres Arbeiten im Labor",
     imgFront: i7Front,
+    imgFrontMaxWidth: 477,
     description: "",
     links: [],
     duties: [],
@@ -157,6 +168,8 @@ const cardsData = [
     img: i8,
     title: "Want Eat",
     imgFront: i8Front,
+    imgFrontMaxWidth: 315,
+    imgBackWidth: 315,
     description: "",
     links: [],
     duties: [],
