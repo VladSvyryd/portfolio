@@ -136,10 +136,15 @@
 .card_chart {
   background-color: rgb(58, 56, 96);
   display: flex;
-  width: 90%;
-  margin: auto;
+  /* width: 90%; */
+  margin: 0 auto 0;
 }
 
+@media (min-width: 822px) {
+  .card_chart {
+    width: 90%;
+  }
+}
 .card_title {
   display: flex;
 }
