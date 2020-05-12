@@ -18,35 +18,37 @@ import i8Front from "../assets/wanteat_back.png";
 const cardsData = [
   {
     img: i1,
-    title: "Learning to Code",
+    title: "Sicheres Arbeiten im Labor",
     imgFront: i1Front,
     imgFrontMaxWidth: 477,
     description:
-      "Umsetzung eines Flash-basierten Lernprogramm mit modernen Technologien",
+      "The program consists of learning materials, video lessons, tests and mini-games. This software has state management system to store results of learning process and games, full size search and work as well on mobile as on desktop devices. Especially the web application has to be supported by all old and modern Browsers, starting from IE 10. Among other conditions it has to be build with the  help of HTML, CSS, JS and work both online and offline.",
     links: [
       {
-        name: "Übersicht Chapter I",
+        name: "Chapter I",
         link:
           "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapa/uebersicht_a.htm",
       },
       {
-        name: "Übersicht Chapter II",
+        name: "Chapter II",
         link:
           "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapb/uebersicht_b.htm",
       },
       {
-        name: "Übersicht Chapter III",
+        name: "Chapter III",
         link:
           "https://sicheresarbeitenimlabor.de/fachinformation-responsiv/kapc/uebersicht_c.htm",
       },
     ],
     duties: [
-      "Erstellung eines Layouts mit Hilfe von Design-Skizzen in Photoshop/ Adobe XD.",
-      "Implementierung der Programmarchitektur (mit weit entfernter Betreuung)",
-      "Erstellung funktionale Anforderungen des Projektes",
-      "Querverweise zwischen drei Teilen des Programms",
-      "Erstellung einer Suche",
-      "Bearbeitungsstand der Aufgaben und globale Zustand interaktiven Elemente",
+      "Collaboration with Designer during implementing of Layout",
+      "Customizing the designs with  Photoshop/ Adobe XD to improve UX/UI",
+      "Prototyping individual reusable components for responsive design",
+      "Implementation of the program architecture (with distant support)",
+      "Creation of functional requirements of the project",
+      "Working on cross-references between three parts of the program",
+      "Create a search-function in the program",
+      "Processing state of exercises and global state of interactive elements of application",
     ],
     tech_stack: [
       { name: "JS", link: "https://en.wikipedia.org/wiki/JavaScript" },
@@ -64,9 +66,9 @@ const cardsData = [
       },
     ],
     timestamp: {
-      sum: [6, "Monate"],
+      sum: [6, "Months"],
       from: [3, 18],
-      till: [6, 18],
+      till: [9, 18],
     },
   },
   {
@@ -74,31 +76,76 @@ const cardsData = [
     title: "Sicheres Befahren von Behältern",
     imgFront: i2Front,
     imgFrontMaxWidth: 477,
-
-    description: "",
-    links: [],
-    duties: [],
-    tech_stack: [],
+    description: "Renew deign of the Webpage, refactor project. The Page hast to be responsive and supported by most of the Browsers.",
+    links: [{
+      name: "Webpage",
+      link:
+        "https://sicheres-befahren.de/hauptmenue/index.htm",
+    },],
+    duties: [
+      "Prototyping UI with Photoshop",
+      "Design and implement new TOC element",
+      "Planning and developing media queries and css logic for them",
+      "Refactor HTML 4 to HTML 5"
+    ],
+    tech_stack: [{ name: "JS", link: "https://en.wikipedia.org/wiki/JavaScript" },
+    { name: "HTML", link: "https://en.wikipedia.org/wiki/HTML" },
+    {
+      name: "CSS",
+      link: "https://en.wikipedia.org/wiki/Cascading_Style_Sheets",
+    },
+    { name: "SASS", link: "https://sass-lang.com/" },
+    { name: "jQuery", link: "https://jquery.com/" },],
     timestamp: {
-      sum: [6, "Monate"],
-      from: [6, 19],
-      till: [9, 19],
+      sum: [2, "Months"],
+      from: [9, 18],
+      till: [11, 18],
     },
   },
   {
     img: i3,
-    title: "Fallbeispiel 1,2,3",
+    title: "Fallbeispiel I, II, III",
     imgFront: i3Front,
     imgFrontMaxWidth: 477,
-
-    description: "",
-    links: [],
-    duties: [],
-    tech_stack: [],
+    description: "The goal is to recreate a flash-based web application. There are new functional and not functional requirement. All pages has new responsive Layout. Three parts of program are separate projects. Manage state of the program and save it in local storage, as well as state of interactive elements of the application. Create a lexicon-program that uses old html pages in iFrame.",
+    links: [{
+      name: "Fallbeispiel I",
+      link:
+        "https://sicheres-befahren.de/fachinformation/fallbeispiel1/aus_einleitung.htm",
+    },
+    {
+      name: "Fallbeispiel II",
+      link:
+        "https://sicheres-befahren.de/fachinformation/fallbeispiel2/aus_einleitung.htm",
+    },
+    {
+      name: "Fallbeispiel III",
+      link:
+        "https://sicheres-befahren.de/fachinformation/fallbeispiel3/aus_einleitung.htm",
+    }],
+    duties: [
+      "Prototyping Layout and implementing it.",
+      "Develop all interactive elements.",
+      "Implement logic of state of Application.",
+      "Create 3 chapters of the program."
+    ],
+    tech_stack: [{ name: "JS", link: "https://en.wikipedia.org/wiki/JavaScript" },
+    { name: "HTML", link: "https://en.wikipedia.org/wiki/HTML" },
+    {
+      name: "CSS",
+      link: "https://en.wikipedia.org/wiki/Cascading_Style_Sheets",
+    },
+    { name: "SASS", link: "https://sass-lang.com/" },
+    { name: "jQuery", link: "https://jquery.com/" },
+    { name: "jQuery UI", link: "https://jqueryui.com/" },
+    {
+      name: "Local Storage",
+      link: "https://en.wikipedia.org/wiki/Web_storage",
+    }],
     timestamp: {
-      sum: [6, "Monate"],
-      from: [9, 18],
-      till: [12, 18],
+      sum: [3, "Months"],
+      from: [1, 19],
+      till: [3, 19],
     },
   },
   {
@@ -106,30 +153,91 @@ const cardsData = [
     title: "Coins Tracker",
     imgFront: i4Front,
     imgFrontMaxWidth: 477,
-    description: "",
-    links: [],
-    duties: [],
-    tech_stack: [],
+    description: "Budgeting app to reining your spending and getting your personal finances under control. A project with completely free Tech Stack. There should be own backend with Rest API and nice frontend with Material UI design lines.",
+    links: [{
+      name: "GitHub Link",
+      link:
+        "https://github.com/VladSvyryd/coinsTracker",
+    }],
+    duties: [
+      "Developing server with Python with Flask",
+      "Implementing all needed services: GET, POST, DELETE, PUT",
+      "Prototyping and implementing multiple color-themes",
+      "Design Layout",
+      "Connect Services on frontend",
+      "Create 3 types of statistics charts"
+    ],
+    tech_stack: [{ name: "JS", link: "https://en.wikipedia.org/wiki/JavaScript" },
+    { name: "HTML", link: "https://en.wikipedia.org/wiki/HTML" },
+    {
+      name: "CSS",
+      link: "https://en.wikipedia.org/wiki/Cascading_Style_Sheets",
+    },
+    { name: "Angular 7", link: "https://angular.io/" },
+    { name: "Python", link: "https://www.python.org/" },
+    {
+      name: "Flask",
+      link: "https://flask.palletsprojects.com/en/1.1.x/",
+    },
+    {
+      name: "SQLite",
+      link: "https://www.sqlite.org/index.html",
+    },
+    {
+      name: "jwt",
+      link: "https://jwt.io/",
+    },
+    {
+      name: "Chart.js",
+      link: "https://www.chartjs.org/",
+    }, {
+      name: "Angular Material",
+      link: "https://material.angular.io/",
+    }, {
+      name: "TypeScript",
+      link: "https://www.typescriptlang.org/",
+    }],
     timestamp: {
-      sum: [6, "Monate"],
-      from: [3, 18],
-      till: [9, 18],
+      sum: [6, "Months"],
+      from: [2, 19],
+      till: [8, 19],
     },
   },
   {
     img: i5,
-    title: "applepie",
+    title: "Applepie",
     imgFront: i5Front,
     imgFrontMaxWidth: 477,
-
-    description: "",
-    links: [],
-    duties: [],
-    tech_stack: [],
+    description: "Landing Page with Angular and Progressive Web Technologies. Fast and user friendly webpage.",
+    links: [{
+      name: "applepie",
+      link:
+        "https://applepie.berlin/",
+    }],
+    duties: [
+      "Prototyping individual reusable components with Angular",
+      "Implementing the necessary logic and, if necessary, adapting the UI in cooperation with",
+      "Discussing and implementing necessary improvements and further ideas together with the customer"
+      , "Bringing in further suggestions and ideas through continuous research in the area of UI, UX and Material Design."
+    ],
+    tech_stack: [{ name: "JS", link: "https://en.wikipedia.org/wiki/JavaScript" },
+    { name: "HTML", link: "https://en.wikipedia.org/wiki/HTML" },
+    {
+      name: "CSS",
+      link: "https://en.wikipedia.org/wiki/Cascading_Style_Sheets",
+    },
+    { name: "Angular 7", link: "https://angular.io/" },
+    {
+      name: "Angular Material",
+      link: "https://material.angular.io/",
+    }, {
+      name: "TypeScript",
+      link: "https://www.typescriptlang.org/",
+    }],
     timestamp: {
-      sum: [6, "Monate"],
-      from: [3, 18],
-      till: [9, 18],
+      sum: [3, "Months"],
+      from: [3, 19],
+      till: [6, 19],
     },
   },
   {
@@ -137,21 +245,41 @@ const cardsData = [
     title: "Virtuelles Labor",
     imgFront: i6Front,
     imgFrontMaxWidth: 477,
-
-    description: "",
-    links: [],
-    duties: [],
-    tech_stack: [],
+    description: "Create training program as Progressive Web Application. The program contains system of levels and interactive rooms in from of different kinds of exercises. State management of the App. Tree structure of levels in the program. Create different types of learning tests.",
+    links: [{
+      name: "Virtuelles Labor",
+      link:
+        "https://sicheresarbeitenimlabor.de/virtuelles_labor/build/index.html#/",
+    }],
+    duties: [
+      "Create user friendly layout",
+      "Develop application architecture",
+      "Implement logic of state management using Context API of React.js",
+      "Implement tree type of routes of the program",
+      "Programming all interactive React components: Drag´n`Drop, Modal Windows, Print Module, Dynamic Navigation Panel"
+    ],
+    tech_stack: [{ name: "JS", link: "https://en.wikipedia.org/wiki/JavaScript" },
+    { name: "HTML", link: "https://en.wikipedia.org/wiki/HTML" },
+    {
+      name: "CSS",
+      link: "https://en.wikipedia.org/wiki/Cascading_Style_Sheets",
+    },
+    { name: "React.js", link: "https://reactjs.org/" },
+    { name: "Semantic-UI", link: "https://semantic-ui.com/" },
+    {
+      name: "Video-React",
+      link: "https://video-react.js.org/",
+    },],
     timestamp: {
-      sum: [6, "Monate"],
-      from: [3, 18],
-      till: [9, 18],
+      sum: [6, "Months"],
+      from: [3, 19],
+      till: [9, 19],
     },
   },
 
   {
     img: i7,
-    title: "Sicheres Arbeiten im Labor",
+    title: "Electron Project",
     imgFront: i7Front,
     imgFrontMaxWidth: 477,
     description: "",

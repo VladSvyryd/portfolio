@@ -46,7 +46,7 @@ const works = () => {
             wind.width <= 740
               ? "circle(100% at 50% 30%)"
               : "circle(100% at 50% 13%)"
-          }`,
+            }`,
           transition: {
             duration: 0.8,
             type: "tween",
@@ -228,7 +228,7 @@ const works = () => {
       style={{
         overflowY: `${
           wind.width <= 740 && activeCard > 0 ? "hidden" : "initial"
-        }`,
+          }`,
       }}
     >
       {cards.map((c, i) => (
@@ -264,7 +264,7 @@ const works = () => {
               style={{
                 overflowY: `${
                   wind.width <= 740 && activeCard > 0 ? "auto" : "hidden"
-                }`,
+                  }`,
               }}
             >
               <motion.div
@@ -311,6 +311,9 @@ const works = () => {
                     </motion.div>
                   )}
                   <motion.div className={w.card_description} variants={item}>
+                    <p>
+                      <b>Description:</b>
+                    </p>
                     <p> {cardBacks[c - 1] && cardBacks[c - 1].description}</p>
                   </motion.div>
                   <motion.div className={w.card_duties} variants={item}>

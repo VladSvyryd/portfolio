@@ -84,16 +84,16 @@ export default (props) => {
     const { sum, from, till } = date;
 
     let arr = [];
-    for (let index = 1; index <= 12; index++) {
-      if (index >= from[0] && index <= till[0]) arr.push(2);
+    for (let index = 1; index <= till[0]; index++) {
+      if (index >= from[0]) { arr.push(2); }
       else {
         arr.push(0);
       }
     }
     const [f_m, f_y] = from;
     const [t_m, t_y] = till;
-    const zeroF = f_m <= 9 ? 0 : null;
-    const zeroT = t_m <= 9 ? 0 : null;
+    const zeroF = f_m <= 9 ? 0 : "";
+    const zeroT = t_m <= 9 ? 0 : "";
     const sumUp = `${zeroF}${f_m}.${f_y} - ${zeroT}${t_m}.${t_y} (${sum[0]} ${sum[1]})`;
 
     return {
