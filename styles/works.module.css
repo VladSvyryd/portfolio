@@ -78,6 +78,7 @@
 .back {
   transform: rotateY(180deg);
   background: rgb(58, 56, 96);
+  cursor: default;
 }
 
 .front .title {
@@ -117,7 +118,7 @@
   .card_grid {
     /* grid-template-columns: 36.2% 1fr; */
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr auto;
     grid-template-areas: "card_img card_info" "card_img card_info" "card_img card_info" "chart card_info" "chart card_info";
   }
 }
@@ -176,6 +177,13 @@
   color: #272641;
   background: #e6e6e6;
 }
+.no_hover {
+  cursor: default;
+}
+.no_hover:hover {
+  color: #e6e6e6;
+  background: #272641;
+}
 .card_duties {
   display: flex;
   flex-direction: column;
@@ -207,4 +215,8 @@
 .card_tech_stack,
 .card_title {
   color: #e6e6e6;
+}
+
+::-webkit-scrollbar.works_back {
+  height: 98%;
 }

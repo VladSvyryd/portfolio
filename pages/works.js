@@ -1,8 +1,7 @@
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, useCycle } from "framer-motion";
 import HistogramChart from "../components/histogram/histogramChart";
 import w from "../styles/works.module.css";
-import Morpho_button from "../components/morpho_button/morpho_button";
 import cardsData from "../data/data";
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -10,14 +9,21 @@ const cardBacks = cardsData;
 
 const works = () => {
   const gridRef = useRef(null);
-  const firstCard = useRef(null);
   const anim_init_Desktop = {
     opacity: 0,
     scale: 0,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 1.1,
+    },
   };
   const anim_finish_Desktop = {
     opacity: 1,
     scale: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 1.1,
+    },
   };
 
   const [rotateFront, setRotateFront] = useState({
@@ -36,7 +42,6 @@ const works = () => {
     card5: {},
     card6: {},
   });
-  const [forAlex, setForAlex] = useState(true);
   const handleHoverStart = (index) => {
     setScaleFront((oldState) => {
       return {
@@ -184,7 +189,7 @@ const works = () => {
       paddingBottom: "15px",
       transition: {
         when: "beforeChildren",
-        staggerChildren: 0.052,
+        staggerChildren: 0.032,
       },
     },
   };
@@ -263,7 +268,7 @@ const works = () => {
               className={w.back}
               style={{
                 overflowY: `${
-                  wind.width <= 740 && activeCard > 0 ? "auto" : "hidden"
+                  activeCard > 0 ? "auto" : "hidden"
                   }`,
               }}
             >
@@ -324,7 +329,7 @@ const works = () => {
                       cardBacks[c - 1].duties.map((d, i) => (
                         <motion.div
                           key={`duty${c}-${i}`}
-                          className={w.card_chip}
+                          className={w.card_chip + " " + w.no_hover}
                           variants={item}
                         >
                           {d}
@@ -333,9 +338,10 @@ const works = () => {
                   </motion.div>
                   {activeCard > 0 && (
                     <motion.div className={w.card_links} variants={item}>
-                      <p>
-                        <b>Links:</b>
-                      </p>
+                      {cardBacks[c - 1].links.length > 0 &&
+                        <p>
+                          <b>Links:</b>
+                        </p>}
                       <motion.div className={w.links_container} variants={item}>
                         {cardBacks[c - 1] &&
                           cardBacks[c - 1].links.map((l, i) => (
@@ -368,8 +374,9 @@ const works = () => {
             </motion.div>
           </motion.div>
         </motion.div>
-      ))}
-    </motion.div>
+      ))
+      }
+    </motion.div >
   );
 };
 

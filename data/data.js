@@ -282,30 +282,66 @@ const cardsData = [
     title: "Electron Project",
     imgFront: i7Front,
     imgFrontMaxWidth: 477,
-    description: "",
+    description: "There are multiple web pages (web applications) that has to be connected with each other like in a sand box. This Application hast to work online and have own pdf viewer, print module and tabs system. There has to be a Local Storage to manage a state of all programs and save it. It is also has to work in intranet and on local machines.",
     links: [],
-    duties: [],
-    tech_stack: [],
+    duties: [
+      "Research on existing software",
+      "Prototyping Electron applications",
+      "Develop Electron's Shell",
+      "Working on developing events to connect Electron and Applications",
+      "Embed PDF Viewer into Electron",
+      "Add tabs system as in chrome browser",
+      "Test the logic of Electron App"
+    ],
+    tech_stack: [{ name: "JS", link: "https://en.wikipedia.org/wiki/JavaScript" },
+    { name: "HTML", link: "https://en.wikipedia.org/wiki/HTML" },
+    {
+      name: "CSS",
+      link: "https://en.wikipedia.org/wiki/Cascading_Style_Sheets",
+    }, {
+      name: "Electron.js",
+      link: "https://www.electronjs.org/",
+    }],
     timestamp: {
-      sum: [6, "Monate"],
-      from: [3, 18],
-      till: [9, 18],
+      sum: [2, "Months"],
+      from: [1, 20],
+      till: [2, 20],
     },
   },
   {
     img: i8,
-    title: "Want Eat",
+    title: "iOS App 'WantEat'",
     imgFront: i8Front,
-    imgFrontMaxWidth: 315,
-    imgBackWidth: 315,
-    description: "",
-    links: [],
-    duties: [],
-    tech_stack: [],
+    imgFrontMaxWidth: 477,
+    description: "Development of a mobile application to suggest recipes under consideration of available supplies of food.",
+    links: [{
+      name: "GitHub",
+      link: "https://github.com/VladSvyryd/wantEatSwift",
+    }],
+    duties: [
+      "Research on Native Platform vs Web Platform",
+      "Functional and Nonfunctional requirements",
+      "Use Case Diagrams",
+      "UI/UX Prototyping",
+      "Research on REST API for recipes",
+      "Implement main logic and interface elements",
+      "Develop application state",
+      "Core Data integration"
+    ],
+    tech_stack: [
+      {
+        name: "Swift",
+        link: "https://developer.apple.com/swift/",
+      },
+      {
+        name: "SwiftUI",
+        link: "https://developer.apple.com/xcode/swiftui/",
+      }
+    ],
     timestamp: {
-      sum: [6, "Monate"],
-      from: [3, 18],
-      till: [9, 18],
+      sum: [6, "Months"],
+      from: [9, 19],
+      till: [12, 19],
     },
   },
 ];
