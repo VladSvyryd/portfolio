@@ -1,131 +1,45 @@
-import { Line } from "react-chartjs-2";
 import { useState, useEffect } from "react";
+import { ResponsiveCalendarCanvas } from '@nivo/calendar'
 
-const dataForChart = {
-  labels: [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ],
-  datasets: [
-    {
-      fill: "start",
-      lineTension: 0.1,
-      borderWidth: 1,
-      backgroundColor: "rgba(75,192,192,0.4)",
-      borderColor: "rgba(75,192,192,1)",
-      borderCapStyle: "butt",
-      borderDash: [],
-      borderDashOffset: 0.0,
-      borderJoinStyle: "miter",
-      pointBorderColor: "rgba(75,192,192,1)",
-      pointBackgroundColor: "#fff",
-      pointBorderWidth: 0.2,
-      pointHoverRadius: 5,
-      pointHoverBackgroundColor: "rgba(75,192,192,1)",
-      pointHoverBorderColor: "white",
-      pointHoverBorderWidth: 0.1,
-      pointRadius: 1,
-      pointHitRadius: 10,
-      data: [],
-      steppedLine: true,
-    },
-  ],
-};
-const options = {
-  responsive: true,
-  maintainAspectRatio: true,
-  legend: {
-    labels: {
-      fontColor: "#e6e6e6",
-    },
-  },
-  animation: {
-    easing: "easeInOutQuad",
-    duration: 820,
-  },
-  scales: {
-    yAxes: [
-      {
-        ticks: {
-          display: false,
-        },
-        gridLines: {
-          display: false,
-          color: "#FFFFFF",
-        },
-      },
-    ],
-    xAxes: [
-      {
-        ticks: {
-          fontColor: "#e6e6e6",
-        },
-        gridLines: {
-          color: "#FFFFFF",
-          zeroLineColor: "#FFFFFF",
-        },
-      },
-    ],
-  },
-};
 export default (props) => {
-  const [charData, set] = useState(dataForChart);
-  const fillDatasetWithRealDate = ({ date } = props) => {
-    const { sum, from, till } = date;
-
-    let arr = [];
-    for (let index = 1; index <= till[0]; index++) {
-      if (index >= from[0]) { arr.push(2); }
-      else {
-        arr.push(0);
-      }
+  const [dates, setDates] = useState([])
+  const getDates = (startDate, stopDate) => {
+    let dateArray = new Array();
+    let currentDate = startDate;
+    while (currentDate <= stopDate) {
+      dateArray.push(new Date(currentDate));
+      currentDate = addDays(currentDate, 1);
     }
-    const [f_m, f_y] = from;
-    const [t_m, t_y] = till;
-    const zeroF = f_m <= 9 ? 0 : "";
-    const zeroT = t_m <= 9 ? 0 : "";
-    const sumUp = `${zeroF}${f_m}.${f_y} - ${zeroT}${t_m}.${t_y} (${sum[0]} ${sum[1]})`;
+    return dateArray;
+  }
+  const addDays = (d, days) => {
+    let date = new Date(d.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+  }
 
-    return {
-      label: `${sumUp}`,
-      ...dataForChart.datasets[0],
-      data: arr,
-    };
-  };
   useEffect(() => {
-    const d = fillDatasetWithRealDate();
-
-    // create gradient
-    const canvas = document.querySelector(`#${props.id}`);
-    const ctx = canvas.getContext("2d");
-    canvas.style.backgroundColor = "rgb(58, 56, 96)";
-    var gradient = ctx.createLinearGradient(0, 0, 0, 100);
-    gradient.addColorStop(1, "rgba(39,38,65,1)");
-    gradient.addColorStop(0, "rgba(58,56,96,1)");
-    d.backgroundColor = gradient;
-
-    set((oldData) => ({
-      ...oldData,
-      datasets: [d],
-    }));
-  }, []);
+    let d = getDates(Date.parse(`20${props.timestamp.from[1]}-${props.timestamp.from[0]}-01`), Date.parse(`20${props.timestamp.till[1]}-${props.timestamp.till[0]}-01`))
+    let formatDates = d.map(date => { return { day: date.toISOString().split('T')[0], value: 164 } })
+    setDates(formatDates)
+  }, [])
   return (
-    <Line
-      data={charData}
-      height={100}
-      options={options}
-      className="myCanvas"
+
+    <ResponsiveCalendarCanvas
+      data={dates}
       id={props.id}
+      className={props.className}
+      from={`20${props.timestamp.from[1]}-${props.timestamp.from[0]}-01`}
+      to={`20${props.timestamp.till[1]}-${props.timestamp.till[0]}-01`}
+      emptyColor="#eeeeee"
+      colors={['#f47560']}
+      margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
+      yearSpacing={40}
+      monthBorderColor="#ffffff"
+      dayBorderWidth={2}
+      dayBorderColor="#ffffff"
+      labelTextColor={{ theme: 'background' }}
+
     />
   );
 };

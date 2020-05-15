@@ -1,12 +1,11 @@
-import { Canvas, extend, useThree, useFrame } from "react-three-fiber";
-import dynamic from "next/dynamic";
-import { useRef } from "react";
-const CanvaS = dynamic(() => import("../components/object/CanvaS"), {
-  ssr: false,
-});
+import HistogramChart from "../components/histogram/histogramChart";
+import w from "../styles/works.module.css";
+
+
 
 const Three = () => {
-  return <CanvaS />;
+  return <div className={w.card_chart}><HistogramChart /></div>
+
 };
 
 export default Three;

@@ -340,8 +340,8 @@ const cardsData = [
     ],
     timestamp: {
       sum: [6, "Months"],
-      from: [9, 19],
-      till: [12, 19],
+      from: [10, 19],
+      till: [2, 20],
     },
   },
 ];

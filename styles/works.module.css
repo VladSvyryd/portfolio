@@ -135,6 +135,7 @@
 }
 
 .card_chart {
+  height: 200px;
   background-color: rgb(58, 56, 96);
   display: flex;
   /* width: 90%; */
@@ -144,6 +145,13 @@
 @media (min-width: 822px) {
   .card_chart {
     width: 90%;
+    height: 260px;
+  }
+  .card_chart canvas {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: -2px -2px 3px rgba(255, 255, 255, 0.05),
+      3px 3px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
   }
 }
 .card_title {

@@ -290,10 +290,7 @@ const works = () => {
                   />
                 </motion.div>
                 <motion.div className={w.card_chart}>
-                  <HistogramChart
-                    date={cardBacks[c - 1].timestamp}
-                    id={`canvas${c}`}
-                  />
+                  {activeCard == c && (<HistogramChart timestamp={cardBacks[c - 1].timestamp} />)}
                 </motion.div>
                 <div className={w.card_info}>
                   <motion.div className={w.card_title} variants={item}>
