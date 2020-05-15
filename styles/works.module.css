@@ -103,6 +103,7 @@
   font-size: 25px;
   line-break: 18px;
   color: #e6e6e6;
+  cursor: pointer;
 }
 
 .card_grid {
