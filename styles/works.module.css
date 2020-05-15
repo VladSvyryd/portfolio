@@ -136,12 +136,12 @@
 }
 
 .card_chart {
-  height: 200px;
+  height: 150px;
   background-color: rgb(58, 56, 96);
   display: flex;
-  /* width: 90%; */
   margin: 0 auto 0;
-  width: 100%;
+  width: 90%;
+  margin: 20px auto;
 }
 .card_chart canvas {
   background: rgba(255, 255, 255, 0.5);
