@@ -22,7 +22,21 @@
     margin: 10px 24px;
   }
 }
-
+@media (max-width: 750px) {
+  .navigation {
+    padding: 0;
+    justify-content: space-evenly;
+  }
+  .navigation > span {
+    margin: 10px 0;
+    width: 40px;
+    height: 40px;
+  }
+  .navigation svg {
+    width: 22px;
+    height: 22px;
+  }
+}
 .homeIcon svg {
   fill: #555;
   /*animation: neonHome 3.5s ease-in-out infinite alternate;*/
