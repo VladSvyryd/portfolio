@@ -339,7 +339,7 @@ const cardsData = [
       }
     ],
     timestamp: {
-      sum: [6, "Months"],
+      sum: [5, "Months"],
       from: [10, 19],
       till: [2, 20],
     },
