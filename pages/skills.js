@@ -40,10 +40,10 @@ const skills = () => {
         animate={anim_finish_Desktop}
       >
         <div className="homeColumn left">
-          <h1 aria-label="Skills" className="headline">
+          <h1 aria-label="Skills" className="headline themeText">
             Skills
           </h1>
-          <div className="textContainer">
+          <div className="textContainer themeText">
             <p>
               Front End developer with experience building responsive websites
               and web applications.

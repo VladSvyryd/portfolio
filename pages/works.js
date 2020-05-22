@@ -7,7 +7,7 @@ import cardsData from "../data/data";
 const cards = [1, 2, 3, 4, 5, 6, 7, 8];
 const cardBacks = cardsData;
 
-const works = () => {
+const works = ({ theme }) => {
   const gridRef = useRef(null);
   const anim_init_Desktop = {
     opacity: 0,
@@ -265,7 +265,7 @@ const works = () => {
             </div>
             <motion.div
               animate={scaleFront[`card${c}`]}
-              className={w.back}
+              className={`${w.back} themeBackground`}
               style={{
                 overflowY: `${
                   activeCard > 0 ? "auto" : "hidden"
@@ -289,23 +289,23 @@ const works = () => {
                     src={cardBacks[c - 1] && cardBacks[c - 1].imgFront}
                   />
                 </motion.div>
-                <motion.div className={w.card_chart}>
-                  {activeCard == c && (<HistogramChart timestamp={cardBacks[c - 1].timestamp} />)}
+                <motion.div className={w.card_chart + " " + "themeBackground"}>
+                  {activeCard == c && (<HistogramChart timestamp={cardBacks[c - 1].timestamp} theme={theme} />)}
                 </motion.div>
                 <div className={w.card_info}>
                   <motion.div className={w.card_title} variants={item}>
-                    <p>{cardBacks[c - 1] && cardBacks[c - 1].title}</p>
+                    <p className="themeTextPurple">{cardBacks[c - 1] && cardBacks[c - 1].title}</p>
                   </motion.div>
 
                   {activeCard > 0 && (
-                    <motion.div className={w.card_tech_stack} variants={item}>
+                    <motion.div className={`${w.card_tech_stack} themeBackground`} variants={item}>
                       {cardBacks[c - 1] &&
                         cardBacks[c - 1].tech_stack.map((t, i) => (
                           <a
                             key={`${t}-${i}`}
                             href={t.link}
                             target="_blank"
-                            className={w.card_chip}
+                            className={`${w.card_chip} themeBackground themeTextPurple`}
                           >
                             {t.name}
                           </a>
@@ -313,30 +313,30 @@ const works = () => {
                     </motion.div>
                   )}
                   <motion.div className={w.card_description} variants={item}>
-                    <p>
+                    <p className="themeText">
                       <b>Description:</b>
                     </p>
-                    <p> {cardBacks[c - 1] && cardBacks[c - 1].description}</p>
+                    <p className="themeText"> {cardBacks[c - 1] && cardBacks[c - 1].description}</p>
                   </motion.div>
                   <motion.div className={w.card_duties} variants={item}>
-                    <p>
+                    <p className="themeText">
                       <b>Duties:</b>
                     </p>
                     {cardBacks[c - 1] &&
                       cardBacks[c - 1].duties.map((d, i) => (
                         <motion.div
                           key={`duty${c}-${i}`}
-                          className={w.card_chip + " " + w.no_hover}
+                          className={w.card_chip + " " + w.no_hover + " " + "themeBackground"}
                           variants={item}
                         >
-                          {d}
+                          <span className="themeText">{d}</span>
                         </motion.div>
                       ))}
                   </motion.div>
                   {activeCard > 0 && (
                     <motion.div className={w.card_links} variants={item}>
                       {cardBacks[c - 1].links.length > 0 &&
-                        <p>
+                        <p className="themeText">
                           <b>Links:</b>
                         </p>}
                       <motion.div className={w.links_container} variants={item}>
@@ -346,10 +346,13 @@ const works = () => {
                               href={l.link}
                               key={i}
                               target="_blank"
-                              className={w.card_chip}
+                              className={w.card_chip + " " + "themeBackground"}
                               variants={item}
                             >
-                              {l.name}
+                              <span className="themeText">
+
+                                {l.name}
+                              </span>
                             </motion.a>
                           ))}
                       </motion.div>
@@ -358,7 +361,7 @@ const works = () => {
                 </div>
                 {
                   <span
-                    className={w.close}
+                    className={w.close + " " + "themeTextPurple"}
                     onClick={() => handleCloseModal(c)}
                     style={{
                       visibility: `${activeCard !== c ? "hidden" : "visible"}`,

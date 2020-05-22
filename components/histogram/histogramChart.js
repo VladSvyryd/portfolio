@@ -25,7 +25,7 @@ export default (props) => {
   }, [])
   return (
     <>
-      <p>{`${props.timestamp.from[0] <= 9 ? 0 : ""}${props.timestamp.from[0]}.${props.timestamp.from[1]} - ${props.timestamp.till[0] <= 9 ? 0 : ""}${props.timestamp.till[0]}.${props.timestamp.till[1]} (${props.timestamp.sum[0]} ${props.timestamp.sum[1]})`}</p>
+      <p className="themeText">{`${props.timestamp.from[0] <= 9 ? 0 : ""}${props.timestamp.from[0]}.${props.timestamp.from[1]} - ${props.timestamp.till[0] <= 9 ? 0 : ""}${props.timestamp.till[0]}.${props.timestamp.till[1]} (${props.timestamp.sum[0]} ${props.timestamp.sum[1]})`}</p>
 
       <ResponsiveCalendarCanvas
         data={dates}

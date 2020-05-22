@@ -4,7 +4,7 @@ import Form from "../components/form/form";
 import Gmap from "../components/gmap/gmap";
 import mapStyles from "../components/gmap/mapStyles.js";
 
-const Contact = ({ query }) => {
+const Contact = ({ query, theme }) => {
   const anim_init_Desktop = {
     opacity: 0,
     translateX: `${query.x}`,
@@ -46,6 +46,7 @@ const Contact = ({ query }) => {
     console.log(window.innerHeight);
     const finalX = window.innerWidth;
     const finalY = window.innerHeight;
+
   }, []);
   return (
     <motion.div
@@ -61,7 +62,7 @@ const Contact = ({ query }) => {
           variants={item}
           custom={-100}
         >
-          <h1 aria-label="Contact" className="headline">
+          <h1 aria-label="Contact" className="headline themeText">
             Contact me
           </h1>
           <Form />

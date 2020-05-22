@@ -6,8 +6,8 @@
 }
 .contactButton a {
   display: block;
-  width: 100%;
   padding: 10px 50px;
+  border-radius: 13px;
 }
 @media (max-width: 1024px) {
   .contactButton {

@@ -23,7 +23,7 @@ const anim_finish_Desktop = {
   }
 };
 
-const about = () => {
+const about = ({ theme }) => {
   const parent = useRef(null);
 
   const container = {
@@ -49,19 +49,20 @@ const about = () => {
   return (
     <motion.div
       exit={{ opacity: 0, scale: 0 }}
-      className="twoCol"
+      className={`twoCol  ${theme ? "lightsOn" : null}`}
+
       initial={anim_init_Desktop}
       animate={anim_finish_Desktop}
     >
-      <div className="homeColumn about">
+      <div className="homeColumn about ">
         <h1
           aria-label="About me"
-          className="headline"
+          className="headline themeText"
           onClick={() => setIcons(shuffle(icons))}
         >
           About me
         </h1>
-        <div className="textContainer">
+        <div className="textContainer themeText">
           <p>
             I am a constantly learning, exploring and experimenting web
             developer. Open to new ideas and innovative solutions of problems.
@@ -80,7 +81,7 @@ const about = () => {
       </div>
 
       <div className={a.animeContainer + " about"} ref={parent}>
-        <NoSSRComponent width={canvas.width} height={canvas.height} />
+        <NoSSRComponent width={canvas.width} height={canvas.height} theme={theme} />
       </div>
     </motion.div>
   );

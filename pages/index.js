@@ -20,18 +20,18 @@ const anim_finish_Desktop = {
 
 const textArray =
   'import React { useState } from "react"; ^1000\n <br> <br> const Portfolio=()=> { ^1000\n <br> <br> const [success, setS] = useState(true); ^500\n <br> <br> const motto=["<b>Just</b>","<b>Do</b>","<b>It</b>","<b>!!!</b>"] <br> <br> ^300\n return ( <br> <br> motto.map(word=>(<i>word</i>) <br> <br> ); <br> <br> ^200\n }';
-function HomePage() {
+function HomePage({ theme }) {
   return (
     <>
       <motion.div
         exit={{ opacity: 0, scale: 0 }}
-        className="twoCol"
+        className={`twoCol  ${theme ? "lightsOn" : null}`}
         initial={anim_init_Desktop}
         animate={anim_finish_Desktop}
       >
         <div style={{ display: "flex", flexDirection: "row" }}>
-          <div className="homeColumn">
-            <h1 aria-label=" Hi, I’m Vlad, web developer." className="headline">
+          <div className="homeColumn ">
+            <h1 aria-label=" Hi, I’m Vlad, web developer." className="headline themeText">
               Hi,
               <br /> I'm Vlad,
               <br /> web developer.
@@ -48,13 +48,14 @@ function HomePage() {
                   pathname: "/contact",
                 }}
                 as={"/contact"}
+
               >
                 <a
                   style={{
                     color: "#6c63ff",
                     fontWeight: "bold",
-                    width: "100%",
                   }}
+                  className="themeBackground"
                 >
                   Contact
                 </a>
@@ -68,8 +69,8 @@ function HomePage() {
               <Typed
                 strings={[textArray]}
                 typeSpeed={40}
-                //backSpeed={50}
-                //loop
+              //backSpeed={50}
+              //loop
               ></Typed>
             }
           />

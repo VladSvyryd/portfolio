@@ -4,6 +4,8 @@ import Sketch from "react-p5";
 import { Vector } from "p5";
 
 export default class ParticlesFont extends Component {
+
+  theme = this.props.theme
   width = this.props.width;
   height = this.props.height;
   vehicles = [];
@@ -16,7 +18,7 @@ export default class ParticlesFont extends Component {
   setup = (p5, canvasParentRef) => {
     // p5.createCanvas(500, 500).parent(canvasParentRef); // use parent to render canvas in this ref (without that p5 render this canvas outside your component)
     p5.createCanvas(this.width, this.height).parent(canvasParentRef);
-    p5.background(39, 38, 65);
+    this.props.theme ? p5.background(39, 38, 65) : p5.background(255, 255, 25)
     p5.textFont(p5.font);
 
     var points = p5.font.textToPoints(
@@ -41,7 +43,7 @@ export default class ParticlesFont extends Component {
         this.maxforce = 1;
       }
 
-      colideWithEdges = function() {
+      colideWithEdges = function () {
         if (this.pos.y >= p5.height) {
           this.pos.y = p5.height - this.r / 2;
           this.vel.y *= -0.5;
@@ -54,7 +56,7 @@ export default class ParticlesFont extends Component {
           this.vel.x *= -0.5;
         }
       };
-      behaviors = function() {
+      behaviors = function () {
         let arrive = this.arrive(this.target);
         let mouse = p5.createVector(p5.mouseX, p5.mouseY);
         let flee = this.flee(mouse);
@@ -63,7 +65,7 @@ export default class ParticlesFont extends Component {
         this.applyForce(arrive);
         this.applyForce(flee);
       };
-      flee = function(target) {
+      flee = function (target) {
         let desired = Vector.sub(target, this.pos);
         if (desired.mag() < 50) {
           desired.setMag(this.maxSpeed);
@@ -75,10 +77,10 @@ export default class ParticlesFont extends Component {
           return p5.createVector(0, 0);
         }
       };
-      applyForce = function(f) {
+      applyForce = function (f) {
         this.acc.add(f);
       };
-      arrive = function(target) {
+      arrive = function (target) {
         let desired = Vector.sub(target, this.pos);
         let distance = desired.mag();
         let speed = this.maxSpeed;
@@ -90,12 +92,12 @@ export default class ParticlesFont extends Component {
         steer.limit(this.maxforce);
         return steer;
       };
-      update = function() {
+      update = function () {
         this.pos.add(this.vel);
         this.vel.add(this.acc);
         this.acc.mult(0); // clear force
       };
-      show = function() {
+      show = function () {
         p5.stroke(108, 99, 255);
         p5.strokeWeight(this.r);
         p5.point(this.pos.x, this.pos.y);
@@ -133,7 +135,7 @@ export default class ParticlesFont extends Component {
     this.myText = new Text(p5.width / 2, p5.height / 4, "GRAVITY: Off (Space)");
   };
   draw = p5 => {
-    p5.background(39, 38, 65);
+    this.props.theme ? p5.background(238, 238, 238) : p5.background(39, 38, 65)
 
     this.myText.update();
     this.myText.colideWithEdges();
@@ -182,7 +184,7 @@ export default class ParticlesFont extends Component {
         keyReleased={this.handlePress}
       />
     ) : (
-      <div>Loading..</div>
-    );
+        <div>Loading..</div>
+      );
   }
 }

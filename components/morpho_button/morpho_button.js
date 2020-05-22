@@ -11,7 +11,7 @@ function Morpho_button(props) {
   return (
     <span
       style={props.style}
-      className={styles.button}
+      className={`${styles.button} themeBackground`}
       onMouseDown={e => isDown(e)}
       onMouseUp={e => isUp(e)}
       onMouseLeave={e => isUp(e)}
