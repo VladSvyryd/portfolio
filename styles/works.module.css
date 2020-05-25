@@ -199,7 +199,11 @@
 }
 .no_hover:hover {
   color: #e6e6e6;
-  background: #272641;
+  background: inherit;
+}
+.no_hover:hover {
+  color: #272641;
+  background: #e6e6e6;
 }
 .card_duties {
   display: flex;
