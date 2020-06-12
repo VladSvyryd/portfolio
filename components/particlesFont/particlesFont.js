@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import Sketch from "react-p5";
 //import fontik from "./AvenirNextLTPro-Demi.otf";
 import { Vector } from "p5";
@@ -38,7 +38,7 @@ export default class ParticlesFont extends Component {
         this.target = p5.createVector(x, y);
         this.vel = p5.createVector(p5.random(3), p5.random(3));
         this.acc = p5.createVector();
-        this.r = 3;
+        this.r = 2.5;
         this.maxSpeed = 10;
         this.maxforce = 1;
       }
@@ -98,7 +98,7 @@ export default class ParticlesFont extends Component {
         this.acc.mult(0); // clear force
       };
       show = function () {
-        p5.stroke(108, 99, 255);
+        p5.stroke(0, 102, 153);
         p5.strokeWeight(this.r);
         p5.point(this.pos.x, this.pos.y);
       };
@@ -118,6 +118,8 @@ export default class ParticlesFont extends Component {
 
       show = () => {
         p5.textAlign(p5.CENTER, p5.CENTER);
+        p5.noStroke();
+        p5.fill(0, 102, 153);
         p5.text(
           `${this.text ? this.text : "Good luck"}`,
           this.pos.x,
@@ -136,7 +138,6 @@ export default class ParticlesFont extends Component {
   };
   draw = p5 => {
     this.props.theme ? p5.background(238, 238, 238) : p5.background(39, 38, 65)
-
     this.myText.update();
     this.myText.colideWithEdges();
     this.myText.show();
@@ -161,7 +162,7 @@ export default class ParticlesFont extends Component {
       }
     });
   };
-  state = { resized: true };
+  state = { resized: true, width: window.innerWidth };
   handleResite = () => {
     this.setState({
       resized: true
@@ -174,8 +175,18 @@ export default class ParticlesFont extends Component {
     }
     console.log(this.gravityOn);
   };
+  handleWindowResize = () => {
+    this.setState({ width: window.innerWidth })
+    console.log(this.state.width)
+  }
+  componentDidMount() {
+    window.addEventListener("resize", this.handleWindowResize);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleWindowResize);
+  }
   render() {
-    return this.state.resized ? (
+    return this.state.resized && this.state.width > 1024 ? (
       <Sketch
         setup={this.setup}
         draw={this.draw}

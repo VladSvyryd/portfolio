@@ -39,7 +39,6 @@
   border-radius: 320px;
   padding: 16px;
   background-color: #272641;
-  color: rgb(108, 99, 255);
   cursor: pointer;
   width: 100%;
   position: relative;
@@ -47,6 +46,7 @@
   z-index: 0;
   font-weight: bold;
 }
+
 .button:hover {
   box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.05),
     inset 2px 2px 5px rgba(0, 0, 0, 0.2);

@@ -202,7 +202,7 @@ const form = () => {
             </div>
 
             <button
-              className={`${f.button} morphoShadow themeBackground ${
+              className={`${f.button} morphoShadow themeBackground button ${
                 isSubmitting ? "borderSpinner" : ""
                 }`}
               type="submit"

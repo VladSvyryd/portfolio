@@ -43,7 +43,7 @@ const skills = () => {
           <h1 aria-label="Skills" className="headline themeText">
             Skills
           </h1>
-          <div className="textContainer themeText">
+          <div className={`textContainer themeText ${skill.myText}`}>
             <p>
               Front End developer with experience building responsive websites
               and web applications.

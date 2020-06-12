@@ -55,20 +55,20 @@ body {
   transition: background 0.3s ease-in-out;
 }
 .lightsOn h1.themeText {
-  color: #6b63ff;
+  color: rgb(0, 102, 153);
   transition: background 0.3s ease-in-out;
 }
 .lightsOn .themeTextPurple {
-  color: #6b63ff;
+  color: rgb(0, 102, 153);
   transition: background 0.3s ease-in-out;
 }
 
 .lightsOn .themeText {
-  color: #919191;
+  color: #484646;
   transition: background 0.3s ease-in-out;
 }
 .lightsOn .themeSVGFilter svg {
-  filter: drop-shadow(0px 0px 1px #6b63ff);
+  filter: drop-shadow(0px 0px 1px rgb(0, 102, 153));
   transition: filter 0.3s ease-in-out;
 }
 .lightsOn .themeForm input,
@@ -82,12 +82,7 @@ body {
   background-color: #dcdcdc;
   transition: all 0.3s ease-in-out;
 }
-@media (max-width: 1024px) {
-  .flexFrame {
-    flex-direction: column-reverse;
-    overflow-x: hidden;
-  }
-}
+
 .twoCol,
 .skills {
   display: flex;
@@ -111,38 +106,6 @@ body {
     width: 60%;
   }
 }
-@media (max-width: 1024px) {
-  .twoCol,
-  .skills {
-    margin-left: 0px;
-  }
-  .twoCol > div:nth-child(1) {
-    width: 100% !important;
-    z-index: 2;
-  }
-  .twoCol > div:nth-child(2) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0.1;
-    z-index: 1;
-  }
-  .skills .left {
-    width: 100% !important;
-    z-index: 2;
-  }
-  .skills .right {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0.1;
-    z-index: 1;
-  }
-}
 
 a {
   text-decoration: none;
@@ -158,6 +121,10 @@ h1.headline {
   line-height: 57px;
   margin: 0;
   margin-bottom: 10px;
+}
+
+.lightsOn h2.sub_headline {
+  color: #484646;
 }
 h2.sub_headline {
   color: #919191;
@@ -179,19 +146,16 @@ h2.sub_headline {
     max-width: 100%;
   }
   .skills .left {
-    flex: 5 !important;
-  }
-  .skills .right {
-    flex: 5 !important;
+    max-width: 50% !important;
   }
 }
-
 @media (max-width: 1024px) {
   h1.headline {
     font-size: 65px !important;
   }
   .homeColumn {
     padding-left: 0% !important;
+    padding-bottom: 10px;
   }
   .homeColumn {
     align-items: center;
@@ -199,7 +163,44 @@ h2.sub_headline {
   h2.sub_headline {
     max-width: 460px;
   }
+  .flexFrame {
+    flex-direction: column-reverse;
+    overflow-x: hidden;
+  }
+  .twoCol,
+  .skills {
+    margin-left: 0px;
+  }
+  .twoCol > div:nth-child(1) {
+    width: 100% !important;
+    z-index: 2;
+  }
+  .twoCol > div:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.1;
+    z-index: 1;
+  }
+  .skills .left {
+    max-width: 100% !important;
+  }
+  .skills .right {
+    max-width: 100% !important;
+
+    opacity: 1;
+    position: relative;
+    height: auto;
+  }
+  .twoCol,
+  .skills {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
+
 @media (max-width: 750px) {
   h1.headline {
     font-size: 55px !important;
@@ -246,10 +247,11 @@ h2.sub_headline {
 }
 
 .skills .left {
-  flex: 3;
+  max-width: 30%;
 }
 .skills .right {
-  flex: 7;
+  width: 100%;
+  max-width: 70%;
 }
 
 .morphoShadow {
@@ -260,9 +262,18 @@ h2.sub_headline {
   box-shadow: -4px -4px 6px rgba(255, 255, 255, 0.08),
     3px 3px 3px rgba(0, 0, 0, 0.4);
 }
+.morphoShadow a,
+button {
+  color: #6c63ff;
+}
+.lightsOn .morphoShadow a,
+.lightsOn .morphoShadow button {
+  color: rgb(0, 102, 153) !important;
+}
 .lightsOn .morphoShadow.button,
 div.morphoShadow {
   background: #dcdcdc;
+  color: rgb(0, 102, 153) !important;
 }
 .morphoShadow.button,
 div.morphoShadow {
@@ -301,6 +312,31 @@ div.morphoShadow {
   fill: #6b63ff !important;
   filter: drop-shadow(0px 0px 6px #6b63ff);
 }
+
+.lightsOn .externalLink {
+  color: rgb(0, 102, 153);
+}
+
+.lightsOn .selected_home svg {
+  fill: rgb(0, 102, 153) !important;
+  filter: drop-shadow(0px 0px 6px rgb(0, 102, 153));
+}
+.lightsOn .selected_about svg {
+  fill: rgb(0, 102, 153) !important;
+  filter: drop-shadow(0px 0px 6px rgb(0, 102, 153));
+}
+
+.lightsOn .selected_skills g,
+.lightsOn .selected_skills svg {
+  fill: rgb(0, 102, 153) !important;
+  filter: drop-shadow(0px 0px 6px rgb(0, 102, 153));
+}
+.lightsOn .selected_contact svg,
+.lightsOn .selected_contact g {
+  fill: rgb(0, 102, 153) !important;
+  filter: drop-shadow(0px 0px 6px rgb(0, 102, 153));
+}
+
 .borderSpinner:before {
   content: "";
   position: absolute;
@@ -394,6 +430,9 @@ a[href^="https://maps.google.com/maps"]
   box-shadow: -4px -4px 22px rgba(255, 255, 255, 0.03),
     6px 6px 6px rgba(0, 1, 0, 0.4);
   border-radius: 16px;
+}
+.lightsOn .gmap_infobox {
+  background: rgb(0, 102, 153);
 }
 .gmap_infobox p {
   margin: 0;

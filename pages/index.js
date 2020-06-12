@@ -51,11 +51,7 @@ function HomePage({ theme }) {
 
               >
                 <a
-                  style={{
-                    color: "#6c63ff",
-                    fontWeight: "bold",
-                  }}
-                  className="themeBackground"
+                  className={`themeBackground ${styles.myButton}`}
                 >
                   Contact
                 </a>

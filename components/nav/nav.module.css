@@ -67,3 +67,13 @@
   fill: #6b63ff;
   filter: drop-shadow(0px 0px 15px #6b63ff);
 }
+
+.lightsOn .homeIcon:hover svg,
+.lightsOn .skillsIcon:hover svg,
+.lightsOn .skillsIcon:hover g,
+.lightsOn .aboutIcon:hover svg,
+.lightsOn .mailIcon:hover g,
+.lightsOn .mailIcon:hover svg {
+  fill: rgb(0, 102, 153);
+  filter: drop-shadow(0px 0px 15px rgb(0, 102, 153));
+}

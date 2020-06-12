@@ -14,3 +14,11 @@
     align-self: center;
   }
 }
+.myButton {
+  font-weight: bold;
+}
+
+.myButton:hover {
+  box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.05),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
