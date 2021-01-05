@@ -14,7 +14,7 @@
     "@nivo/calendar": "^0.61.1",
     "@sendgrid/mail": "^6.5.3",
     "@zeit/next-css": "^1.0.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "chart.js": "^2.9.3",
     "cross-env": "^7.0.0",
     "formik": "^2.1.4",
